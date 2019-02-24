@@ -60,3 +60,8 @@
     
     git commit --amend
 
+
+Git 迁移远程仓库
+
+    换新仓库 保留之前的提交记录
+    直接添加新的remote 然后提交即可

@@ -18,8 +18,6 @@ Glide
         RequestManagerRetriever retriever = RequestManagerRetriever.get();
         return retriever.get(context);
     }
-    
-
 ```
 
 Glide的生命周期

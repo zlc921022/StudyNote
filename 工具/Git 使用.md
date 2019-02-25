@@ -10,7 +10,7 @@
 
     git config --list --local
     git config --list --global
-    git config --list --system
+    git config --list --system 
 初始化 
 
     git init 

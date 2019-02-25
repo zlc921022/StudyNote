@@ -2,11 +2,11 @@
 
 主线程创建的Handler对象,构造里传入一个子线程的Looper,那么这个handler消费Message,消费的是主线程的还是子线程的?
 
-1查看发送消息方法可以看到 handler传消息是直接传给自己对于的MQ,这个MQ是个全局的,需要去找到MQ在那里赋值
+查看发送消息方法可以看到 handler传消息是直接传给自己对于的MQ,这个MQ是个全局的,需要去找到MQ在那里赋值
 
 ![](https://upload-images.jianshu.io/upload_images/61189-2b8245b68a041291.jpg)
 
-2. 全局搜索可以发现 这个MQ是由Looper维护的 这个Looper是Handler 构造函数传进来的,
+全局搜索可以发现 这个MQ是由Looper维护的 这个Looper是Handler 构造函数传进来的,
 ![](https://upload-images.jianshu.io/upload_images/61189-6337151f183cfeea.jpg)
 
 所以Handler跟其绑定的Looper 在同一个线程

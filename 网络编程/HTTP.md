@@ -5,7 +5,7 @@
     HTTP 是什么? HTTP 一次完整的流程是怎么样的?
 
 ##Http 
-    
+
     HTTP（全称超文本传输协议，英文全称HyperText Transfer Protocol）是互联网上应用最为广泛的一种网络协议.
 ##Http 报文详解
     

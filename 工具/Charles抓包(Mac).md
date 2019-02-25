@@ -6,11 +6,10 @@
 
 ### 1. 首先是下载安装 我用的版本是这个
 
- ![](https://upload-images.jianshu.io/upload_images/61189-85974787b06713e0.jpg)
+![](https://upload-images.jianshu.io/upload_images/61189-85974787b06713e0.jpg)
  
 ### 2. 简单设置
- ![](https://upload-images.jianshu.io/upload_images/61189-df3bb23b6512393e.jpg)
-
+![](https://upload-images.jianshu.io/upload_images/61189-df3bb23b6512393e.jpg)
 
 选中这个 Enable macOS proxy 就可以对电脑进行抓包了
 ![](https://upload-images.jianshu.io/upload_images/61189-2cb99aae56640ac7.jpg)

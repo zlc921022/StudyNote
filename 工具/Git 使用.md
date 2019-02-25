@@ -40,6 +40,10 @@
 删除远程分支
 
     git remote remove [name]
+
+从远程分支拉取最新代码
+
+    git pull [remote-name][branch-name] 
     
 推送到远程分支
 

@@ -11,6 +11,7 @@
     git config --list --local
     git config --list --global
     git config --list --system 
+
 初始化 
 
     git init 
@@ -55,7 +56,6 @@
     git diff HEAD
     git diff HEAD filename // 比较文件
 
-
 查看当前的分支信息
 
     git branch -av
@@ -63,7 +63,6 @@
 修改 最新 commit的message
     
     git commit --amend
-
 
 Git 迁移远程仓库
 

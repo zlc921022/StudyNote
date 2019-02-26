@@ -22,17 +22,17 @@
 
 ### App 怎么启动
 
-    * Launcher通知AMS,要启动斗鱼App,而且指定要启动斗鱼App的那个界面(首页)
-    * AMS 通知Launcher收到请求,同时将要启动的首页记录下来
-    * Launcher当前页面进入 Pause 状态,然后通知AMS,进入休眠状态,可以对要斗鱼App进行操作了
-    * AMS 检查斗鱼App 是否已经启动了,
-        是 唤起斗鱼App 即可
-        否 启动一个新的进程,AMS在新进程中创建一个ActivityThread对象,启动其中的main函数
-    * 斗鱼App启动后,通知AMS 启动完成
-    * AMS 查找出之前存的启动页面,通知斗鱼App启动那个页面
-    * 斗鱼App启动首页,创建Context并与首页Activity关联,然后调用首页Activity的onCreate函数
+* Launcher通知AMS,要启动斗鱼App,而且指定要启动斗鱼App的那个界面(首页)
+* AMS 通知Launcher收到请求,同时将要启动的首页记录下来
+* Launcher当前页面进入 Pause 状态,然后通知AMS,进入休眠状态,可以对要斗鱼App进行操作了
+* AMS 检查斗鱼App 是否已经启动了,
+    是 唤起斗鱼App 即可
+    否 启动一个新的进程,AMS在新进程中创建一个ActivityThread对象,启动其中的main函数
+* 斗鱼App启动后,通知AMS 启动完成
+* AMS 查找出之前存的启动页面,通知斗鱼App启动那个页面
+* 斗鱼App启动首页,创建Context并与首页Activity关联,然后调用首页Activity的onCreate函数
 
-    分2个部分 
+    上述步骤可分2个部分 
         1~3 Launcher与AMS通信
         4~7 斗鱼App与AMS通信
 

@@ -40,7 +40,6 @@ ObjectAnimator
        ObjectAnimator animator =ObjectAnimator.ofFloat(iv_img,"progress",40);
                 animator.start();
 
-    
     可以使用系统自带的方法
     也可以实现自定义,但要注意实现 getter/setter 方法 而且在 setter 方法中要调用 invalidate() 方法来进行重绘,
     使用时 跟系统提供的方法一样,但是需要手动 start()

@@ -4,7 +4,6 @@
 
     Java提供,只需要实现'Serializable接口'即可,配合下面的Stream流来进行写入与读取即可
     
-
 ``` java
 public class User implements Serializable {
     // 帮助反序列化
@@ -47,8 +46,6 @@ public static void doSerializable() {
 * 基础 Parcelable接口
 
     这个是安卓提供的,实现之后可以实现序列化并可以通过Intent以及Binder来传递
-    
-    
     
 * Binder
 

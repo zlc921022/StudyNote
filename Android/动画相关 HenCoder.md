@@ -2,7 +2,6 @@
 
 Animation
 
-
 帧动画
 
     Drawable文件夹放置图片,一张张连续切换,
@@ -17,13 +16,11 @@ View动画
     
     只是改变View的视图,不改变View的状态,最直观的就是点击事件不会跟着View动画移动
     
-
 Property动画(属性动画)
     
     ObjectAnimator
     ValueAnimator
     AnimationSet
-
 
 ViewPropertyAnimator
 
@@ -32,8 +29,7 @@ ViewPropertyAnimator
     系统实现的 只能使用系统提供的方法,会自动运行
      还可以使用  setDuration() 来设置时长
     setInterpolator() 来设置速度模型(插值器)
-    也可以设置监听器
-    
+    也可以设置监听器  
     
 ObjectAnimator
     

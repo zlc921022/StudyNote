@@ -35,6 +35,14 @@
 2-31 okhttp面试：Https／对称加密&不对称加密
 
 ```
+
+## 提出问题
+
+    OkHttp缓存机制
+    OkHttp路由管理
+    OkHttp请求流程
+    OkHttp的OkIo
+
 使用流程
 
 

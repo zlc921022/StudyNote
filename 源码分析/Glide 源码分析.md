@@ -1,5 +1,10 @@
 # Glide 源码分析
 
+## 提出问题
+
+    Glide 缓存机制
+    Glide 如何管理图片的生命周期
+
 ``` java
 Glide
      .with(activity)

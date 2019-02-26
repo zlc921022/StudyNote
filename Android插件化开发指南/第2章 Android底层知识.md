@@ -37,5 +37,55 @@
         4~7 斗鱼App与AMS通信
 
 #### Launcher通知AMS
-    
 
+    ActivityThread 就是主线程,也就是UI线程,他在App启动时创建,代表了App应用程序,Application就是整个ActivityThread的上下文
+
+``` java
+  @Override
+    public void startActivityForResult(
+            String who, Intent intent, int requestCode, @Nullable Bundle options) {
+       
+        Instrumentation.ActivityResult ar =
+            mInstrumentation.execStartActivity(
+                this, mMainThread.getApplicationThread(), mToken, who,
+                intent, requestCode, options);
+    }
+```
+
+        上述代码传递了2个重要的参数
+        * 通过ActivityThread的 getApplicationThread方法获取到一个Binder对象,这个对象的类型为ApplicationThread,代表了Launcher所在的App进程
+        * mToken也是一个Binder对象,代表Launcher这个Activity也通过Instrumentation传给AMS,AMS查询后就知道是谁向AMS发起了请求
+        上述参数是为了以后AMS需要通知Launcher的时候,可以通过这2个参数找到Launcher
+
+
+    下为 ActivityThread 的 main函数
+
+``` java
+ public static void main(String[] args) {
+        Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, "ActivityThreadMain");
+        SamplingProfilerIntegration.start();
+        CloseGuard.setEnabled(false);
+        Environment.initForCurrentUser();
+    }
+```
+
+``` java
+ public ActivityResult execStartActivity(
+            Context who, IBinder contextThread, IBinder token, Activity target,
+            Intent intent, int requestCode, Bundle options) {
+                
+        try {
+           
+            int result = ActivityManagerNative.getDefault()
+                .startActivity(whoThread, who.getBasePackageName(), intent,
+                        intent.resolveTypeIfNeeded(who.getContentResolver()),
+                        token, target != null ? target.mEmbeddedID : null,
+                        requestCode, 0, null, options);
+            checkStartActivityResult(result, intent);
+        } catch (RemoteException e) {
+            throw new RuntimeException("Failure from system", e);
+        }
+        return null;
+    }
+
+```

@@ -74,15 +74,11 @@
 
 保存 Git账号密码
 
-    git config --local credential.helper store
     git config --global credential.helper store
-    git config --system credential.helper store
 
 清楚之前保存的账号密码
-    git config --local --unset credential.helper
-    git config --global --unset credential.helper
-    git config --system --unset credential.helper
 
+    网上搜的都没用 最后在User文件夹发现了这个文件 .git-credentials,里面存的是账号密码,将该文件上删除之后 就删除成功了
 
 Git 迁移远程仓库
 

@@ -1,6 +1,11 @@
 # Handler 机制
 
-主线程创建的Handler对象,构造里传入一个子线程的Looper,那么这个handler消费Message,消费的是主线程的还是子线程的?
+## 提出问题
+
+
+    主线程创建的Handler对象,构造里传入一个子线程的Looper,那么这个handler消费Message,消费的是主线程的还是子线程的?
+
+
 
 查看发送消息方法可以看到 handler传消息是直接传给自己对于的MQ,这个MQ是个全局的,需要去找到MQ在那里赋值
 

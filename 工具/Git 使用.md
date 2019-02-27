@@ -12,6 +12,10 @@
     git config --list --global
     git config --list --system 
 
+从远程仓库 Clone 项目到本地
+
+    git clone [url]
+
 初始化 
 
     git init 

@@ -34,6 +34,7 @@ Glide的生命周期
         void onDestroy();
     }
 ```
+
  即传入Application类型的参数，和传入非Application类型的参数。
  
  Application对象的生命周期即应用程序的生命周期，因此Glide并不需要做什么特殊的处理，它自动就是和应用程序的生命周期是同步的，如果应用程序关闭的话，Glide的加载也会同时终止。

@@ -3,8 +3,8 @@
 
 配置用户信息
 
-    git config -- global user.name 'name'
-    git config -- global user.email 'xxx@163.com'
+    git config --global user.name 'name'
+    git config --global user.email 'xxx@163.com'
  
 显示config的配置 加--list
 

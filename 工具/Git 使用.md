@@ -68,6 +68,10 @@
     
     git commit --amend
 
+查看 git 提交历史
+    
+    git log
+
 Git 迁移远程仓库
 
     换新仓库 保留之前的提交记录

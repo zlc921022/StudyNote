@@ -1,13 +1,13 @@
 # 动画相关 HenCoder
 
-Animation
+## Animation
 
-帧动画
+## 帧动画
 
     Drawable文件夹放置图片,一张张连续切换,
     图片数量过多,容易出现OOM
 
-View动画
+## View动画
     
     Translate
     Scale
@@ -16,13 +16,13 @@ View动画
     
     只是改变View的视图,不改变View的状态,最直观的就是点击事件不会跟着View动画移动
     
-Property动画(属性动画)
+## Property动画(属性动画)
     
     ObjectAnimator
     ValueAnimator
     AnimationSet
 
-ViewPropertyAnimator
+### ViewPropertyAnimator
 
     View..animate().translationX(100);
     
@@ -31,7 +31,7 @@ ViewPropertyAnimator
     setInterpolator() 来设置速度模型(插值器)
     也可以设置监听器  
     
-ObjectAnimator
+### ObjectAnimator
     
        ObjectAnimator animator =ObjectAnimator.ofFloat(iv_img,"progress",40);
                 animator.start();

@@ -97,6 +97,7 @@ runningSyncCalls.add(call);
                 }
             });
 ```
+
 * 创建`OkHttpClient`和`Request`对象
 * 将`Request`封装成`Call`对象
 * 调用`Call`的`enqueue`方法执行异步请求,具体由AsyncCall来实现异步
@@ -110,7 +111,7 @@ runningSyncCalls.add(call);
 
 核心类
 
-```
+``` java
 
 Dispatcher exqueue()
 
@@ -128,13 +129,14 @@ getResponseWithInterceptorChain
 
 Dispatcher用于维护同步异步的请求状态,并维护一个线程池,用于执行网络请求
 
-拦截器链
+## 拦截器链
 
 * 发起请求前对Request进行相应的处理
 * 调用下一个拦截器,获取他的Response
 * 对Response进行处理并返回给上一个拦截器
 
-RetryAndFollowUpInterceptor
+### RetryAndFollowUpInterceptor
+
 失败重连 重定向
 
 * 创建 StreamAllocation 对象(建立执行Http请求)所需要的所有的网络组件,分配Stream
@@ -143,14 +145,15 @@ RetryAndFollowUpInterceptor
 * 调用下一个拦截器,对response进行处理,返回给上一个拦截器
 
 
-BridgeInterceptor
+### BridgeInterceptor
+
 桥接 设置内容长度 编码方式,主要是添加头部的作用
 
 * 负责将用户构建的一个Request请求转化为能够进行网络访问的请求
 * 讲这个符合网络请求的Request进行网络请求
 * 讲网络请求返回的响应Response转化为用户可用的Response
 
-CacheInterceptor
+### CacheInterceptor
 
 缓存的使用 DiskLruCache(这个类很重要)
 
@@ -167,8 +170,8 @@ get
 remove
 
 
+### ConnectInterceptor
 
-ConnectInterceptor
 打开与服务器之间的链接
 
 * 获取 Interceptor 传过来的StreamAllocation,streamAllocation.newStream()
@@ -177,19 +180,17 @@ ConnectInterceptor
 
 findHealthyConnection 这个方法很重要 
 
-CallServerInterceptor
+### CallServerInterceptor
+
 用于将网络请求写入io流中
 
-
-```
+``` java
 RealInterceptorChain realChain = (RealInterceptorChain) chain;
     HttpCodec httpCodec = realChain.httpStream();
     StreamAllocation streamAllocation = realChain.streamAllocation();
     RealConnection connection = (RealConnection) realChain.connection();
     Request request = realChain.request();
 ```
-
-
 
 连接池:
 

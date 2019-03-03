@@ -1,6 +1,10 @@
 # 多进程相关
 
-* 基础 Serializable接口
+## 提出问题
+
+    Activity间传递对象为什么需要序列化
+
+## 基础 Serializable接口
 
     Java提供,只需要实现'Serializable接口'即可,配合下面的Stream流来进行写入与读取即可
     
@@ -43,7 +47,7 @@ public static void doSerializable() {
 ```
 
 
-* 基础 Parcelable接口
+## 基础 Parcelable接口
 
     这个是安卓提供的,实现之后可以实现序列化并可以通过Intent以及Binder来传递
 
@@ -63,4 +67,5 @@ public static void doSerializable() {
     Proxy 在自己的sum方法中,会使用Parcelable来准备数据,将函数名称,函数参数都写入_data,让_reply接收函数返回值,最后使用 IBinder 的transact方法,就可以将数据传给Binder的Server端了
 
     Server 通过onTransact方法接收Client进程传来的数据,包括函数名称,函数参数,找到对应的函数,把参数传进去,得到结果,并返回.所以onTransact函数经历了读数据->执行要调用的函数->把执行结果再写数据的过程
+
 

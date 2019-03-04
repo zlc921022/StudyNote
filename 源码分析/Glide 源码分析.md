@@ -61,7 +61,7 @@ value 是自定义的一个类包含 resource对象 key等参数
         loadFromCache()：从 使用了 LruCache算法机制的内存缓存获取 缓存
         loadFromActiveResources()：从 使用了 弱引用机制的内存缓存获取 缓存
 
-监听Activity的生命周期 监听到onPause 之后是如何回收的呢
+## 监听Activity的生命周期 监听到onPause 之后是如何回收的呢
 
     RequestManager.pauseRequests();
 

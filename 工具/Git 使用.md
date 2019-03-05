@@ -31,7 +31,7 @@
     
 提交所有的文件以及修改的 
 
-    git commit -a -m “massage”
+    git commit -am “massage”
 
 添加远程分支
 

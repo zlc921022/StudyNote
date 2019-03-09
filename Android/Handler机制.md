@@ -24,3 +24,29 @@ ThreadLocal 内部有个 ThreadLocalMap 来存储对象 但是是非静态的 �
 ![](https://upload-images.jianshu.io/upload_images/61189-8a0f9cc3e6728cf3.jpg)
 
 这里会检测是否有传callback 若有传就不会走handleMessage了
+
+
+## static 关键字修饰
+
+    Java 中 匿名内部类和非静态内部类都会隐式的持有一份对外部类的引用，而静态的内部类则不会包含对外部类的引用。
+
+![image.png](https://upload-images.jianshu.io/upload_images/61189-417b0a040f9754a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![image.png](https://upload-images.jianshu.io/upload_images/61189-30f142348aa79348.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+    如上图这样给匿名类添加static,还会报warn
+
+有下面3种解决方案
+
+Handler 传入Callback 即可
+
+![image.png](https://upload-images.jianshu.io/upload_images/61189-47b578ed826894e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+自己继承Handler定义一个静态类
+
+![image.png](https://upload-images.jianshu.io/upload_images/61189-87cfc55cecd3c657.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+为Handler 指定Looper
+![image.png](https://upload-images.jianshu.io/upload_images/61189-3f1400c151ace42e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+

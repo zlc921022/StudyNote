@@ -1,11 +1,11 @@
 # 自定义View
 
-画文字
+## 画文字
 
-View的绘制
-每个 View 和 ViewGroup 都会先调用 onDraw() 方法来绘制主体，再调用 dispatchDraw() 方法来绘制子 View。
+## View的绘制
+    每个 View 和 ViewGroup 都会先调用 onDraw() 方法来绘制主体，再调用 dispatchDraw() 方法来绘制子 View。
 
-View的绘制过程
+## View的绘制过程
 
     背景
     主体（onDraw()）
@@ -13,8 +13,8 @@ View的绘制过程
     滑动边缘渐变和滑动条
     前景
     
-    
-    // View.java 的 draw() 方法的简化版大致结构（是大致结构，不是源码哦）：
+``` java  
+View.java 的 draw() 方法的简化版大致结构（是大致结构，不是源码哦）：
 public void draw(Canvas canvas) {
     ...
 
@@ -25,15 +25,16 @@ public void draw(Canvas canvas) {
 
     ...
 }
+```
 
-给View添加自定义动画 自定义属性 需要设置getter和setter
+## 给View添加自定义动画 自定义属性 需要设置getter和setter
 
-定制Layout内部布局的方式
+## 定制Layout内部布局的方式
     
     重写 onMeasure() 来计算内部布局
     重写 onLayout() 来摆放子 View
 
-重写 onMeasure() 的三个步骤
+### 重写 onMeasure() 的三个步骤
     调用每个子View的measure() 来计算子View的尺寸
     计算子View的位置并保存子View的位置和尺寸
     计算自己的尺寸并用setMeasuredDimension()保存

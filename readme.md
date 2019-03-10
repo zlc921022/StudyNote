@@ -3,7 +3,7 @@
 ## Android相关
 
 
-[Handler机制](https://github.com/CodeLiuPu/StudyNote/blob/master/Android/%E5%8A%A8%E7%94%BB%E7%9B%B8%E5%85%B3.md)<br/>
+[Handler机制](https://github.com/CodeLiuPu/StudyNote/blob/master/Android/Handler%E6%9C%BA%E5%88%B6.md)<br/>
 [动画相关](https://github.com/CodeLiuPu/StudyNote/blob/master/Android/%E5%8A%A8%E7%94%BB%E7%9B%B8%E5%85%B3.md)<br/>
 [屏幕适配](https://github.com/CodeLiuPu/StudyNote/blob/master/Android/%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D.md)<br/>
 

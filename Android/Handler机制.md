@@ -1,11 +1,24 @@
-# Handler 机制
+# Handler机制
 
 ## 提出问题
 
+    说下Handler机制
 
     主线程创建的Handler对象,构造里传入一个子线程的Looper,那么这个handler handleMessage()方法,工作的是线程是主线程的还是子线程的?
 
-    说下Handler机制，Looper通过MessageQueque取消息，消息队列是先进先出模式,那我延迟发两个消息,第一个消息延迟2个小时,第二个消息延迟1个小时,那么第二个消息需要等3个小时才能取到吗？
+    Looper通过MessageQueque取消息，消息队列是先进先出模式,那我延迟发两个消息,第一个消息延迟2个小时,第二个消息延迟1个小时,那么第二个消息需要等3个小时才能取到吗？
+
+## Handler 机制介绍
+
+    主要有5个类
+    Handler 负责发消息和处理消息
+    Message 消息对象
+    MessageQueue 消息队列,负责存储消息对象 本质是优先队列
+    Looper 消息轮询器 负责从MQ中取消息并传给Handler,让其处理
+    ThreadLocal
+
+
+
 
 
     查看发送消息方法可以看到 handler传消息是直接传给自己对于的MQ,这个MQ是个全局的,需要去找到MQ在那里赋值
@@ -46,6 +59,7 @@ Handler 传入Callback 即可
 自己继承Handler定义一个静态类
 
 ![image.png](https://upload-images.jianshu.io/upload_images/61189-87cfc55cecd3c657.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 
 

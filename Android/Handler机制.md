@@ -33,21 +33,30 @@
         然后会发现有这个逻辑 msg.target.dispatchMessage(msg); 其中 target 就是Handler
         Handler 的 dispatchMessage() 方法 最终调用的是 handleMessage() 方法
 
-    查看发送消息方法可以看到 handler传消息是直接传给自己对于的MQ,这个MQ是个全局的,需要去找到MQ在那里赋值
+## handleMessage线程问题
 
-![](https://upload-images.jianshu.io/upload_images/61189-2b8245b68a041291.jpg)
+![image.png](https://upload-images.jianshu.io/upload_images/61189-c053e62a400b816b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+    
+    可以倒着推,上图可以看到 Handler的handleMessage()方法 是在 Handler 的 dispatchMessage()中调用的我们可以查找下 dispatchMessage() 方法调用的时机
 
-    全局搜索可以发现 这个MQ是由Looper维护的 这个Looper是Handler 构造函数传进来的,
+![image.png](https://upload-images.jianshu.io/upload_images/61189-becaffb074dd2e9b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![image.png](https://upload-images.jianshu.io/upload_images/61189-77a06d8206aa2a22.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+    这里直接给出答案,dispatchMessage() 会再Looper的 loop() 方法中被调用,上面Message的target 就是发送Message的 Handler.
+    这个Message 是从 MessageQueue 取出来的,所以他跟 MessageQueue 在同一线程
+
+    全局搜索可以发现 这个MessageQueue是由Looper维护的 而Looper是Handler 构造函数传进来的,
 
 ![](https://upload-images.jianshu.io/upload_images/61189-6337151f183cfeea.jpg)
 
-    所以Handler跟其绑定的Looper 在同一个线程
+### 结论
 
-ThreadLocal 内部有个 ThreadLocalMap 来存储对象 但是是非静态的 所以每个线程都各有一份
+    Handler跟其绑定的Looper 在同一个线程
 
-![](https://upload-images.jianshu.io/upload_images/61189-8a0f9cc3e6728cf3.jpg)
+## ThreadLocal
 
-这里会检测是否有传callback 若有传就不会走handleMessage了
+    ThreadLocal 内部有个 ThreadLocalMap 来存储对象 但是是非静态的 所以每个线程都各有一份
 
 ## static 关键字修饰
 
@@ -71,3 +80,9 @@ Handler 传入Callback 即可
 自己继承Handler定义一个静态类
 
 ![image.png](https://upload-images.jianshu.io/upload_images/61189-87cfc55cecd3c657.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+## 小TIP:
+
+![](https://upload-images.jianshu.io/upload_images/61189-8a0f9cc3e6728cf3.jpg)
+
+    这里会检测是否有传callback 若有传就不会走handleMessage了

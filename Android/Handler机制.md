@@ -68,18 +68,26 @@
 
     如上图这样给匿名类添加static,还会报warn
 
-有下面3种解决方案,推荐使用第三种
+    有下面3种解决方案,推荐使用第三种
 
-Handler 传入Callback 即可
+### 创建 Handler对象 传入Callback
 
 ![image.png](https://upload-images.jianshu.io/upload_images/61189-47b578ed826894e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-为Handler 指定Looper
+![image.png](https://upload-images.jianshu.io/upload_images/61189-c5b1001c70caddb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+    如上图 Java核心技术第10版给出的定义是:
+        如果构造参数的闭小括号后面跟一个开大括号,正在定义的就是匿名内部类。
+        所以 该方式是创建了一个对象,而非匿名内部类,所以不会持有外部类的引用
+
+### 为Handler 指定Looper
 ![image.png](https://upload-images.jianshu.io/upload_images/61189-3f1400c151ace42e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-自己继承Handler定义一个静态类
+## 自己继承Handler定义一个静态类
 
 ![image.png](https://upload-images.jianshu.io/upload_images/61189-87cfc55cecd3c657.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+    该方式是创建了静态内部类,这样就不会不会持有外部类的引用
 
 ## 小TIP:
 

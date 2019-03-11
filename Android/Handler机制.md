@@ -15,11 +15,23 @@
     Message 消息对象
     MessageQueue 消息队列,负责存储消息对象 本质是优先队列
     Looper 消息轮询器 负责从MQ中取消息并传给Handler,让其处理
-    ThreadLocal
+    ThreadLocal 保存Looper
 
+    发送消息
 
+        Handler 使用 sendMessage() 方法发送消息,
+        最后调用到 MessageQueue 的 enqueueMessage()方法,向队列里添加消息
+        这里有个关键点 Message 有个值 when(when = 当前时间戳+delay),添加消息的时候会将when的大小当做优先级将MessageQueue 重新排列,
 
+    轮训消息
 
+        Looper.loop();
+
+    接收并处理消息
+
+        Looper 会从 MessageQueue 中取出消息
+        然后会发现有这个逻辑 msg.target.dispatchMessage(msg); 其中 target 就是Handler
+        Handler 的 dispatchMessage() 方法 最终调用的是 handleMessage() 方法
 
     查看发送消息方法可以看到 handler传消息是直接传给自己对于的MQ,这个MQ是个全局的,需要去找到MQ在那里赋值
 

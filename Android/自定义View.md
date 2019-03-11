@@ -1,6 +1,10 @@
 # 自定义View
 
-## 画文字
+## View 的绘制过程
+
+    onMeasure() 
+    onLayout() 
+    onDraw()
 
 ## View的绘制
     每个 View 和 ViewGroup 都会先调用 onDraw() 方法来绘制主体，再调用 dispatchDraw() 方法来绘制子 View。

@@ -5,6 +5,7 @@
     网络协议分层 是什么
     HTTP 是什么?
     HTTP 一次完整的流程是怎么样的?
+    GET 和 POST 的区别
 
 ## 网络协议分层(经典五层模型)
 
@@ -19,6 +20,7 @@
 ## Http
 
     HTTP（全称超文本传输协议，英文全称HyperText Transfer Protocol）是互联网上应用最为广泛的一种网络协议.
+
 ## Http 报文详解
 
     HTTP 在应用层交互数据的方式 = 报文
@@ -33,14 +35,14 @@
     请求体:存放 需发送给服务器的数据信息
 
 ``` js
-    GET /barite/account/stock/groups HTTP/1.1
-    QUARTZ-SESSION: MC4xMDQ0NjA3NTI0Mzc0MjAyNg.VPXuA8rxTghcZlRCfiAwZlAIdCA
-    DEVICE-TYPE: ANDROID
-    API-VERSION: 15
-    Host: shitouji.bluestonehk.com
-    Connection: Keep-Alive
-    Accept-Encoding: gzip
-    User-Agent: okhttp/3.10.0
+GET /barite/account/stock/groups HTTP/1.1
+QUARTZ-SESSION: MC4xMDQ0NjA3NTI0Mzc0MjAyNg.VPXuA8rxTghcZlRCfiAwZlAIdCA
+DEVICE-TYPE: ANDROID
+API-VERSION: 15
+Host: shitouji.bluestonehk.com
+Connection: Keep-Alive
+Accept-Encoding: gzip
+User-Agent: okhttp/3.10.0
 ```
 
 ### 响应报文: 
@@ -52,7 +54,7 @@
     响应体:存放 需发送给服务器的数据信息
 
 ``` js
-   HTTP/1.1 200 OK
+HTTP/1.1 200 OK
 Server: nginx/1.6.3
 Date: Mon, 15 Oct 2018 03:30:28 GMT
 Content-Type: application/json;charset=UTF-8
@@ -77,9 +79,19 @@ Proxy-Connection: Keep-alive
 * Transfer-Encoding：chunked表示采用分块传输编码，有该字段则无需使用Content-Length字段。
 * Content-Length：声明数据的长度，请求和回应头部都可以使用该字段。
 
-### HTTP 工作流程
+## HTTP 工作流程
 
 1. 建立 TCP 连接
 2. 客户端封装请求报文 并向服务端发送请求命令
 3. 服务端 返回响应报文 客户端进行处理
 4. 服务端关闭 TCP 连接
+
+## 请求方法
+
+### GET
+
+
+### POST
+
+
+### GET 和 POST 区别

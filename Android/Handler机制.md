@@ -85,7 +85,7 @@
 ### 为Handler 指定Looper
 ![image.png](https://upload-images.jianshu.io/upload_images/61189-3f1400c151ace42e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-## 自己继承Handler定义一个静态类
+### 自己继承Handler定义一个静态类
 
 ![image.png](https://upload-images.jianshu.io/upload_images/61189-87cfc55cecd3c657.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

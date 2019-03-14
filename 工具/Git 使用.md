@@ -78,7 +78,21 @@
 
 清楚之前保存的账号密码
 
-    网上搜的都没用 最后在User文件夹发现了这个文件 .git-credentials,里面存的是账号密码,将该文件上删除之后 就删除成功了
+    网上搜的我试了都不起效
+    最后在检查User文件夹发现了 .gitconfig 文件 
+    打开查看发现控制账号密码存储的是这个属性
+
+![image.png](https://upload-images.jianshu.io/upload_images/61189-fa30929f50a297e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+    并在同级文件夹下发现 .git-credentials 文件
+    发现里面存的是账号密码
+
+![image.png](https://upload-images.jianshu.io/upload_images/61189-cb563f0b7a60e6e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![image.png](https://upload-images.jianshu.io/upload_images/61189-566cf60dcae2e139.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+    将 .gitconfig 文件中 [credential] 属性删除
+    并将 .git-credentials 文件删除即可
 
 Git 迁移远程仓库
 

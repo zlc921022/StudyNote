@@ -1,8 +1,6 @@
-
 # Java内存模型
 
 ![](https://upload-images.jianshu.io/upload_images/61189-b2d08ae9ab427c36.jpg)
-
 
 线程共享区:
 

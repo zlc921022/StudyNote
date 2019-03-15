@@ -1,4 +1,4 @@
-## App的安装流程
+# App的安装流程
 
     Android系统会使用PMS解析Apk中的AndroidManifest文件,包括:
         四大组件的信息,比如静态Receiver 默认启动的Activity

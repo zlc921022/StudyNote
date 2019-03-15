@@ -1,4 +1,4 @@
-## AMS(ActivityManagerService)
+# AMS(ActivityManagerService)
 
     AMS主要负责和所有App的四大组件进行通信
 

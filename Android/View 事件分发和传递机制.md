@@ -7,14 +7,6 @@
 
     Activity 和 View 没有 interceptTouchEvent() 方法
 
-
-
-
-
-
-
-
-
 ## 用白话描述
 
 ### 老板 - Activity：

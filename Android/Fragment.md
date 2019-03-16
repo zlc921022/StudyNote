@@ -2,7 +2,14 @@
 
 ## 提出问题
 
-
+    Fragment 生命周期
+    getActivity()空指针
+    异常：Can not perform this action after onSaveInstanceState
+    Fragment重叠异常-----正确使用hide、show的姿势
+    Fragment嵌套的那些坑
+    未必靠谱的出栈方法remove()
+    多个Fragment同时出栈的深坑BUG
+    深坑 Fragment转场动画
 
 ## Fragment 生命周期
 
@@ -10,7 +17,7 @@
 
 |Activity 生命周期|Fragment 生命周期|时机|
 |---|---|---|
-|onCreate|onAttach(Activity activity)|Fragment与Activity已经完成绑定|
+|onCreate|onAttach(Activity activity)|Fragment与Activity绑定|
 ||onCreate|初始化Fragment。可通过参数savedInstanceState获取之前保存的值。|
 ||onCreateView||
 ||onViewCreated||
@@ -20,4 +27,7 @@
 |onStop|onStop|不可见|
 |onDestroy|onDestroyView|销毁|
 ||onDestroy||
-||onDetach||
+||onDetach|Fragment与Activity解除绑定|
+
+
+https://www.jianshu.com/p/d9143a92ad94

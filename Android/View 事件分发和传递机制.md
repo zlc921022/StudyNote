@@ -1,6 +1,23 @@
 # View 事件分发和传递机制
 
-老板 - Activity：
+
+    interceptTouchEvent 拦截
+    dispatchTouchEvent 分发
+    onTouchEvent 处理
+
+    Activity 和 View 没有 interceptTouchEvent() 方法
+
+
+
+
+
+
+
+
+
+## 用白话描述
+
+### 老板 - Activity：
 
 ```
 客户通知老板你有项目了。老板的dispatchEvent()会被调用。
@@ -16,7 +33,7 @@
 }
 ```
 
-主管 - ViewGroup
+### 主管 - ViewGroup
 
 ```
 老板通知了主管有个app要你们部门去开发。主管的dispatchTouchEvent()会被调用
@@ -38,14 +55,13 @@
 }
 ```
 
-开发人员 - View
+### 开发人员 - View
 
 ```
 主管通知了开发人员有个app要开发。开发人员的dispatchTouchEvent()会被调用
 开发人员.dispatchTouchEvent(){
     return 开发人员.onTouchEvent();
 }
-
 ```
 
 requestDisallowInteceptTouchEvent

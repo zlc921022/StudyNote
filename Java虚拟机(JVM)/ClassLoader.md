@@ -9,8 +9,16 @@
 
 ##   ClassLoader家族都有那些
 
-    PathClassLoader 
-    DexClassLoader 用于加载Dex文件,可以加载外部的Dex文件
+    BootClassLoader（Java的BootStrap ClassLoader）
+        用于加载Android Framework层class文件。
+    PathClassLoader（Java的App ClassLoader）
+        用于加载已经安装到系统中的apk中的class文件。
+    DexClassLoader（Java的Custom ClassLoader）
+        用于加载指定目录中的class文件。
+    BaseDexClassLoader
+        是PathClassLoader和DexClassLoader的父类。
+
+
 
 ## 双亲委派机制
 

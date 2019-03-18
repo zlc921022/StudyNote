@@ -11,12 +11,13 @@
 
     BootClassLoader（Java的BootStrap ClassLoader）
         用于加载Android Framework层class文件。
-    PathClassLoader（Java的App ClassLoader）
-        用于加载已经安装到系统中的apk中的class文件。
-    DexClassLoader（Java的Custom ClassLoader）
-        用于加载指定目录中的class文件。
     BaseDexClassLoader
         是PathClassLoader和DexClassLoader的父类。
+    PathClassLoader（Java的App ClassLoader）
+        可以加载/data/app目录下的apk,这也意味着它只能加载已经安装的apk.
+    DexClassLoader（Java的Custom ClassLoader）
+        可以加载文件系统上的jar,dex,apk;可以从SD卡中加载未安装的apk
+   
 
 
 

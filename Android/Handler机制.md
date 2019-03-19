@@ -10,6 +10,8 @@
 
     使用 Handler 需要注意什么?
 
+    postRunable post 的内存泄露引用链
+
 ## Handler 机制介绍
 
     主要有5个类

@@ -1,24 +1,11 @@
-# 编译插桩
+# AspectJ
 
-## 技术实现
-
-    Java文件
-
-        APT,AndroidAnnotation 代码生成的场景,他们生成的都是Java文件
-
-    字节码(Bytecode)
-
-        对于代码监控,代码修改以及代码分析三个场景,一般采用操作字节码的方式,可以操作'.class'的Java字节码,也可以操作'.dex'的Dalvik字节码
-        相对于Java文件的方式,字节码操作更加强大,应用场景也更广,但是它使用的复杂度更高
-
-### AspectJ
-
-#### 介绍
+## 介绍
 
     内部通过字节码处理技术实现代码注入
 
 
-#### 使用方法
+## 使用方法
 
     1. 为方法类添加 @Aspect 注解
     2. 在对应方法中添加 @After("execution(* [类路径 ])")
@@ -48,30 +35,14 @@ public class ActivityAspect {
 
 使用逆向工具反编译代码可以插桩前后的区别
 
-
 * 源代码
 
 ![image.png](https://upload-images.jianshu.io/upload_images/61189-8d6ae1ce54d5a1de.png)
 
 * 插桩后代码
 
-
-
 ![image.png](https://upload-images.jianshu.io/upload_images/61189-6f2d8755995ceda2.png)
 
 适用场景:
 
     无痕埋点,打印日志之类的都可以这样实现,
-
-## Epic 
-
-    是一个虚拟机层面,以Java Method为粒度的Hook框架
-    https://github.com/tiann/epic
-
-    compile 'me.weishu:epic:0.3.6'
-    继承 XC_MethodHook 实现对应逻辑
-    注入Hook : DexposedBridge.findAndHoolMethod
-
-
-
-[一起玩转Android项目中的字节码](https://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650244795&idx=1&sn=cdfc4acec8b0d2b5c82fd9d884f32f09&chksm=886377d4bf14fec2fc822cd2b3b6069c36cb49ea2814d9e0e2f4a6713f4e86dfc0b1bebf4d39&mpshare=1&scene=1&srcid=1217NjDpKNvdgalsqBQLJXjX%23rd)

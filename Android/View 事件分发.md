@@ -1,4 +1,4 @@
-# View 事件分发和传递机制
+# View 事件分发
 
 
     interceptTouchEvent 拦截

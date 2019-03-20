@@ -17,55 +17,55 @@
 ## 模拟代码
 
 ``` java
- private void testSoftReference(){
-        System.out.println("testSoftReference");
-        ReferenceQueue referenceQueue = new ReferenceQueue();
-        Object o = new Object();
+private void testSoftReference(){
+    System.out.println("testSoftReference");
+    ReferenceQueue referenceQueue = new ReferenceQueue();
+    Object o = new Object();
 
-        SoftReference softReference = new SoftReference<Object>(o,referenceQueue);
+    SoftReference softReference = new SoftReference<Object>(o,referenceQueue);
 
-        // 去除强引用
-        o = null;
+    // 去除强引用
+    o = null;
 
-        Runtime.getRuntime().gc();
+    Runtime.getRuntime().gc();
 
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        Reference ref = null;
-
-        while( (ref = referenceQueue.poll()) != null){
-            System.out.println("=====testSoftReference=======  \n ref in queue");
-        }
+    try {
+        Thread.sleep(100);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
     }
-    
-    private void testWeakReference(){
-        System.out.println("testWeakReference");
-        ReferenceQueue referenceQueue = new ReferenceQueue();
-        Object o = new Object();
 
-        WeakReference weakReference = new WeakReference<Object>(o,referenceQueue);
+    Reference ref = null;
 
-        // 去除强引用
-        o = null;
-
-        Runtime.getRuntime().gc();
-
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        Reference ref = null;
-
-        while( (ref = referenceQueue.poll()) != null){
-            System.out.println("=====testWeakReference=======  \n ref in queue");
-        }
+    while( (ref = referenceQueue.poll()) != null){
+        System.out.println("=====testSoftReference=======  \n ref in queue");
     }
+}
+
+private void testWeakReference(){
+    System.out.println("testWeakReference");
+    ReferenceQueue referenceQueue = new ReferenceQueue();
+    Object o = new Object();
+
+    WeakReference weakReference = new WeakReference<Object>(o,referenceQueue);
+
+    // 去除强引用
+    o = null;
+
+    Runtime.getRuntime().gc();
+
+    try {
+        Thread.sleep(100);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+
+    Reference ref = null;
+
+    while( (ref = referenceQueue.poll()) != null){
+        System.out.println("=====testWeakReference=======  \n ref in queue");
+    }
+}
 ```
 
 ### 输出

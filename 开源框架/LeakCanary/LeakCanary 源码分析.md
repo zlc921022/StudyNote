@@ -22,6 +22,7 @@
 
     在一个Activity执行完onDestroy()之后，将它放入WeakReference中，然后将这个WeakReference类型的Activity对象与ReferenceQueque关联。这时再从ReferenceQueque中查看是否有没有该对象，如果没有，执行gc，再次查看，还是没有的话则判断发生内存泄露了。最后用HAHA这个开源库去分析dump之后的heap内存。
 
+
 [LeakCanary源码分析](https://blog.csdn.net/u013000152/article/details/80239240)</br>
 [看完这篇 LeakCanary 原理分析，又可以虐面试官了！](https://juejin.im/entry/5c3fefe66fb9a049a979fb77)</br>
 [007 LeakCanary 内存泄漏原理完全解析](https://juejin.im/post/5c054e91e51d45242906ed68)</br>

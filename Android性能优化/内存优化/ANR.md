@@ -2,7 +2,17 @@
 
     Application Not Response 应用无响应,一般是因为在主线程进行耗时操作而导致主线程卡死
 
-## ANR 日志获取
+  
+## 造成 ANR 原因
+
+    Service Timeout:比如前台服务在20s内未执行完成；
+    BroadcastQueue Timeout：比如前台广播在10s内未执行完成
+    ContentProvider Timeout：内容提供者,在publish过超时10s;
+    InputDispatching Timeout: 输入事件分发超时5s，包括按键和触摸事件。
+    
+## ANR 问题定位
+
+### 获取 ANR 日志
 
 ``` java
 adb shell kill -S QUIT PID 

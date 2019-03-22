@@ -56,3 +56,9 @@ DALVIK THREADS:
 
 ![](https://upload-images.jianshu.io/upload_images/61189-7b01cb37d0ad23c6.png)
 
+
+[深入理解ANR](https://mp.weixin.qq.com/s?__biz=MzIyNTY4NjU0OQ==&mid=2247486156&idx=1&sn=c994406210364387393271748c590ded&chksm=e87aafb6df0d26a05ddeb10835eafc6dbb3a65a0bfc8b20f0c8cdab70f1b4b9ab375cbcfedf5&mpshare=1&scene=23&srcid=0322F041ehtZ5w1s5cR6fg1V#rd)</br>
+[理解Android ANR的触发原理](http://gityuan.com/2016/07/02/android-anr/)</br>
+[看完这篇 Android ANR 分析，就可以和面试官装逼了！](https://mp.weixin.qq.com/s?__biz=MzIwMTAzMTMxMg==&mid=2649493643&idx=1&sn=34b51d1f61bd2ecaa8fd0a2d39c4d1d1&chksm=8eec9b74b99b126246acc4547597dfe55c836b8f689b2d1a65bdf1ee2054ced2fc070bfa2678&mpshare=1&scene=23&srcid=03215dAQAhO0AmVSCH1Dd2Vw#rd)</br>
+[Android ANR问题总结](https://www.jianshu.com/p/fa962a5fd939)</br>
+

@@ -101,3 +101,13 @@ value 是自定义的一个类包含 resource对象 key等参数
 
 
 这里可以看到 最后会将图片缓存到内存中
+
+## 遇到的问题
+
+    You cannot start a load for a destroyed activity
+
+    加载图片的时候,Activity已经被Destroyed
+
+    解决方法:
+
+        在加载图片之前,先进行Activity是否Destroy的判断.

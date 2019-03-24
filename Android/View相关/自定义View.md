@@ -50,7 +50,7 @@
     前景
     
 ``` java  
-View.java 的 draw() 方法的简化版大致结构（是大致结构，不是源码哦）：
+View.java 的 draw() 方法的简化版大致结构(是大致结构，不是源码哦)
 public void draw(Canvas canvas) {
     ...
 
@@ -58,7 +58,6 @@ public void draw(Canvas canvas) {
     onDraw(Canvas); // 绘制主体
     dispatchDraw(Canvas); // 绘制子 View
     onDrawForeground(Canvas); // 绘制滑动相关和前景
-
     ...
 }
 ```

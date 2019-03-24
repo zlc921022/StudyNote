@@ -9,7 +9,7 @@
 ## View的绘制
     每个 View 和 ViewGroup 都会先调用 onDraw() 方法来绘制主体，再调用 dispatchDraw() 方法来绘制子 View。
 
-## View的绘制过程
+## View的 Draw() 过程
 
     背景
     主体（onDraw()）

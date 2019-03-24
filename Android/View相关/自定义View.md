@@ -10,17 +10,19 @@
 
 ## MeasureSpec
 
-     精确模式（MeasureSpec.EXACTLY）
-    
-        在这种模式下,尺寸的值是多少,那么这个组件的长或宽就是多少
-    
-    最大模式（MeasureSpec.AT_MOST）
-    
-        这个也就是父组件,能够给出的最大的空间,当前组件的长或宽最大只能为这么大,当然也可以比这个小
-    
-    未指定模式（MeasureSpec.UNSPECIFIED）
-    
-        当前组件,可以随便用空间,不受限制
+    MeasureSpec的值由SpecSize(测量值)和SpecMode(测量模式)共同组成.
+    它是由布局参数和父容器的测量属性一起决定的
+
+    分三种类型
+
+    EXACTLY:
+        表示精确模式,一般当childView设置其宽高为精确值,match_parent (同时父容器也是这种模式) 的情况
+
+    AT_MOST:
+        表示最大值模式,一般当childView设置其宽高为wrap_content,match_parent(同时父容器也是这种模式)的情况
+
+    UNSPECIFIED:
+        表示子视图可以想要任何尺寸,一般用于系统内部,开发时很少使用
 
 ## onMeasure()
 
@@ -39,7 +41,6 @@
 ## onDraw()
 
     每个 View 和 ViewGroup 都会先调用 onDraw() 方法来绘制主体，再调用 dispatchDraw() 方法来绘制子 View。
-
 
 ### View的 Draw() 过程
 

@@ -6,10 +6,6 @@
 
 ### App 怎么启动
 
-    Launcher 通知 AMS 
-    AMS 到 ApplicationThread 的调用过程
-    ActivityThread 启动 Activity
-
 * Launcher通知AMS,要启动斗鱼App,而且指定要启动斗鱼App的那个界面(首页)
 * AMS 通知Launcher收到请求,同时将要启动的首页记录下来
 * Launcher当前页面进入 Pause 状态,然后通知AMS,进入休眠状态,可以对要斗鱼App进行操作了
@@ -77,4 +73,9 @@
     }
 ```
 
-  
+    Launcher 通知 AMS 7
+    AMS 到 ApplicationThread 的调用过程
+    ActivityThread 启动 Activity
+
+
+    Instrumentation

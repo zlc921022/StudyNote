@@ -1,14 +1,23 @@
 # Binder 
 
 ## 介绍
+
     Binder是Android系统 进程间通信(IPC)的方式之一
     
     用了动态代理模式
     内存映射
 
-    使用反射来实现
-    Binder 分为 Client 和 Server 两个进程,其中发送消息的是Client,接收消息的是Server
+    Binder Client 
+        只需要知道自己要使用的 Binder 的名字及其在 ServiceManager 中的引用即可获取该 Binder 的引用，得到引用后就可以像普通方法调用一样调用 Binder 实体的方法;
 
+    Binder Server 
+        在生成一个 IBinder 实体时会为其绑定一个名称并传递给 Binder Driver，Binder Driver 会在内核空间中创建相应的 Binder 实体节点和节点引用，并将引用传递给 ServiceManager。ServiceManager 会将该 Binder 的名字和引用插入一张数据表中，这样 Binder Client 就能够获取该 Binder 实体的引用，并调用上面的方法;
+
+    ServiceManager 
+        相当于 DNS服务器，负责映射 Binder 名称及其引用,其本质同样是一个标准的 Binder Server；
+
+    Binder Driver 
+        则相当于一个路由器
 
 ## 优点
 

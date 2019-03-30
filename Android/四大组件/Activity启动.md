@@ -25,15 +25,15 @@
     ActivityThread 就是主线程,也就是UI线程,他在App启动时创建,代表了App应用程序,Application就是整个ActivityThread的上下文
 
 ``` java
-  @Override
-    public void startActivityForResult(
-            String who, Intent intent, int requestCode, @Nullable Bundle options) {
-       
-        Instrumentation.ActivityResult ar =
-            mInstrumentation.execStartActivity(
-                this, mMainThread.getApplicationThread(), mToken, who,
-                intent, requestCode, options);
-    }
+@Override
+public void startActivityForResult(
+        String who, Intent intent, int requestCode, @Nullable Bundle options) {
+    
+    Instrumentation.ActivityResult ar =
+        mInstrumentation.execStartActivity(
+            this, mMainThread.getApplicationThread(), mToken, who,
+            intent, requestCode, options);
+}
 ```
 
         上述代码传递了2个重要的参数
@@ -45,37 +45,47 @@
     下为 ActivityThread 的 main函数
 
 ``` java
- public static void main(String[] args) {
-        Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, "ActivityThreadMain");
-        SamplingProfilerIntegration.start();
-        CloseGuard.setEnabled(false);
-        Environment.initForCurrentUser();
-    }
+public static void main(String[] args) {
+    Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, "ActivityThreadMain");
+    SamplingProfilerIntegration.start();
+    CloseGuard.setEnabled(false);
+    Environment.initForCurrentUser();
+}
 ```
 
 ``` java
- public ActivityResult execStartActivity(
-            Context who, IBinder contextThread, IBinder token, Activity target,
-            Intent intent, int requestCode, Bundle options) {
-                
-        try {
-           
-            int result = ActivityManagerNative.getDefault()
-                .startActivity(whoThread, who.getBasePackageName(), intent,
-                        intent.resolveTypeIfNeeded(who.getContentResolver()),
-                        token, target != null ? target.mEmbeddedID : null,
-                        requestCode, 0, null, options);
-            checkStartActivityResult(result, intent);
-        } catch (RemoteException e) {
-            throw new RuntimeException("Failure from system", e);
-        }
-        return null;
+public ActivityResult execStartActivity(
+        Context who, IBinder contextThread, IBinder token, Activity target,
+        Intent intent, int requestCode, Bundle options) {
+            
+    try {
+        
+        int result = ActivityManagerNative.getDefault()
+            .startActivity(whoThread, who.getBasePackageName(), intent,
+                    intent.resolveTypeIfNeeded(who.getContentResolver()),
+                    token, target != null ? target.mEmbeddedID : null,
+                    requestCode, 0, null, options);
+        checkStartActivityResult(result, intent);
+    } catch (RemoteException e) {
+        throw new RuntimeException("Failure from system", e);
     }
+    return null;
+}
 ```
 
-    Launcher 通知 AMS 7
-    AMS 到 ApplicationThread 的调用过程
-    ActivityThread 启动 Activity
+## 进阶解密描述
 
+    根Activity的启动
 
-    Instrumentation
+### Launcher 通知 AMS
+
+    Flag 设置为 Intent.FLAG_ACTIVITY_NEW_TASK
+        这样根Activity 就会再新的任务栈中启动
+    
+    startActivityForResult 来启动Activity
+
+    因为根Activity 没有被创建出来,所以调用 Instrumentation 的 execStartActivity
+    Instrumentation 主要来监控应用程序 和 系统的交互
+
+### AMS 到 ApplicationThread 的调用过程
+### ActivityThread 启动 Activity

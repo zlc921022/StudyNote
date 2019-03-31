@@ -9,7 +9,12 @@
     BroadcastQueue Timeout: 比如前台广播在10s内未执行完成
     ContentProvider Timeout: 内容提供者,在publish过超时10s
     InputDispatching Timeout: 输入事件分发超时5s,包括按键和触摸事件
-    
+
+## Service超时监测机制
+
+    Service运行在应用程序的主线程，如果Service的执行时间超过20秒，则会引发ANR。
+
+
 ## ANR 问题定位
 
 ### 获取 ANR 日志

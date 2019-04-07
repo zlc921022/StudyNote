@@ -17,9 +17,6 @@
         可以加载/data/app目录下的apk,这也意味着它只能加载已经安装的apk.
     DexClassLoader（Java的Custom ClassLoader）
         可以加载文件系统上的jar,dex,apk;可以从SD卡中加载未安装的apk
-   
-
-
 
 ## 双亲委派机制
 
@@ -27,4 +24,3 @@
 
     Why
         判断2个类是否相等,需要相同的路径以及相同的ClassLoader,这样能防止用户由于失误将JDK提供的类给覆盖掉
-

@@ -36,7 +36,3 @@ Android Studio3.0使用
         annotationProcessor 'com.google.dagger:dagger-compiler:2.6'
         
 以上配置完毕就可以开始使用dagger2来进行开发了
-
-    
-    
-

@@ -4,7 +4,6 @@
 
     内部通过字节码处理技术实现代码注入
 
-
 ## 使用方法
 
     1. 为方法类添加 @Aspect 注解
@@ -28,9 +27,9 @@ public class ActivityAspect {
 运行结果如下图 已插入成功
 
 ``` js
-    com.update.aspectjdemo I/System.out: Update onCreateMethod_Before Point = void com.update.aspectjdemo.MainActivity.onCreate(Bundle)
-    com.update.aspectjdemo I/System.out: Update onCreateMethod_Now 
-    Update onCreateMethod_After Point = void com.update.aspectjdemo.MainActivity.onCreate(Bundle)
+com.update.aspectjdemo I/System.out: Update onCreateMethod_Before Point = void com.update.aspectjdemo.MainActivity.onCreate(Bundle)
+com.update.aspectjdemo I/System.out: Update onCreateMethod_Now 
+Update onCreateMethod_After Point = void com.update.aspectjdemo.MainActivity.onCreate(Bundle)
 ```
 
 使用逆向工具反编译代码可以插桩前后的区别

@@ -78,7 +78,17 @@
 
 清楚之前保存的账号密码
 
-    网上搜的我试了都不起效
+1. 从控制面板删除
+
+    打开控制面板 依次点开 控制面板\用户帐户\凭据管理器
+
+    ![gitdelete.png](https://upload-images.jianshu.io/upload_images/61189-feb84426b78a8741.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+    将对应凭据删除即可
+
+2. 删除文件
+
+    上述方法在我的电脑上不起作用,
     最后在检查User文件夹发现了 .gitconfig 文件 
     打开查看发现控制账号密码存储的是这个属性
 

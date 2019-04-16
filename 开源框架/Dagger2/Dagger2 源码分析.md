@@ -36,3 +36,29 @@ Android Studio3.0使用
         annotationProcessor 'com.google.dagger:dagger-compiler:2.6'
         
 以上配置完毕就可以开始使用dagger2来进行开发了
+
+
+@Module
+@Commponent{modules = }
+@Inject
+@ContributesAndroidInjector
+@Provides
+
+
+@Scope
+作用域
+@Singleton App 中只有一个实例
+@ActivityScope Activity中只有一个实例
+
+@Inject
+要求在构造函数上使用
+
+@Inject 注解的两个功能基本上已经明确了，一是 为了提供被注入的对象，二是提供注入到当前类的对象。
+
+@Provides 注解的功能就是标注提供被注入的对象的方法，是为了弥补@Inject 注解出现的
+
+https://www.jianshu.com/p/2f3b3de1ce08
+
+https://blog.csdn.net/user11223344abc/article/details/83450237
+
+https://blog.csdn.net/qq_17766199/article/details/73030696

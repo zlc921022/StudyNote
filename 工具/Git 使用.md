@@ -108,3 +108,7 @@ Git 迁移远程仓库
 
     换新仓库 保留之前的提交记录
     直接添加新的remote 然后提交即可
+
+git 删除错误的commit 并保留之前的 记录
+
+https://blog.csdn.net/javalixy/article/details/78258717

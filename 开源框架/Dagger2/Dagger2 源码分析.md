@@ -62,3 +62,12 @@ https://www.jianshu.com/p/2f3b3de1ce08
 https://blog.csdn.net/user11223344abc/article/details/83450237
 
 https://blog.csdn.net/qq_17766199/article/details/73030696
+
+### 遇到的小问题
+
+    在base 库中使用dagger 要在 上层库上使用 
+    需要在上层库中添加
+
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.16'
+
+    不然在上层库中不会生成对应的 Component 类

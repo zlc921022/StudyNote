@@ -21,4 +21,7 @@ zipalign
 
     对齐，通过zipalign工具对apk中的未压缩资源（图片、视频）进行“对齐操作”，让资源按4字节的边界进行对齐，使得资源访问速度更快。（优化思想类似于内存对齐，
 
+## Transform 
+
+    每个 Transform 都是一个 Gradle Task,Android编译器中的 TaskManager 将每个 Transform 串起来
 ![transformconsume_transform.png](https://upload-images.jianshu.io/upload_images/61189-85778a7046b23933.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

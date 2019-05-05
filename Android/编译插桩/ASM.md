@@ -102,7 +102,8 @@ public class TestClassVisitor extends ClassVisitor {
 
     先新建一个类 编写要注入的代码,然后用插件查看
 
-![image.png](https://user-gold-cdn.xitu.io/2019/5/1/16a72ffe49deac91?w=1240&h=658&f=png&s=372454)
+![image.png](https://upload-images.jianshu.io/upload_images/61189-258a37d6bf141d98.png)
+
 
 ``` java
 public class TestMethodVisitor extends MethodVisitor implements Opcodes {
@@ -170,15 +171,15 @@ public class Demo {
  
 原 Hello 类生成的 .class 文件,以及输出效果
 
-![image.png](https://upload-images.jianshu.io/upload_images/61189-aa71d43cc5e6734e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/61189-aa71d43cc5e6734e.png)
 
-![image.png](https://upload-images.jianshu.io/upload_images/61189-3d9e01aa35219705.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/61189-3d9e01aa35219705.png)
 
 字节码修改后的 Hello 类的 .class 文件以及输出效果
 
-![image.png](https://upload-images.jianshu.io/upload_images/61189-8779d97d2b452cde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/61189-8779d97d2b452cde.png)
 
-![image.png](https://upload-images.jianshu.io/upload_images/61189-a7d73d30cf8c8af9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/61189-a7d73d30cf8c8af9.png)
 
 ## 用途
 

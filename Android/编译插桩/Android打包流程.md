@@ -33,9 +33,17 @@ zipalign
 
 ### 过滤机制
 
+#### ContentType
+
+    数据类型
+
+    插件开发中,我们常用的就是 CLASSES 和 RESOURCES 两种类型,需要注意的是 CLASSES 类型 已经包含了 class 文件以及 jar 文件
+
 #### Scope
 
-#### ContentType
+    作用域
+
+
 
 
 

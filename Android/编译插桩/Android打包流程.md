@@ -26,7 +26,18 @@ zipalign
 
 ## Transform 
 
-    每个 Transform 都是一个 Gradle Task,Android编译器中的 TaskManager 将每个 Transform 串起来
+### 介绍
+    上述的过程其实都是一个Transform , 每个 Transform 都是一个 Gradle Task,Android编译器中的 TaskManager 会将每个 Transform 串起来
+
+    关于 TaskManager 如何管理 可以查看 TaskManager # createPostCompilationTasks() 方法
+
+### 过滤机制
+
+#### Scope
+
+#### ContentType
+
+
 
 ![transformconsume_transform.png](https://upload-images.jianshu.io/upload_images/61189-85778a7046b23933.png)
 

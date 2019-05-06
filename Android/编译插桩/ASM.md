@@ -60,6 +60,8 @@ class Hello {
 
 ### 4.2 编写 ASM 逻辑
 
+    这里使用的是 Java 自带的 ASM 包,所以不用单独引入别的 jar包
+
 #### 4.2.1 编写 ClassVisitor
 
     解析类的监听器,解析Class字节码时会触发内部的方法

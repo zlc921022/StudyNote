@@ -1,6 +1,8 @@
 # Android 打包流程
 
-![16204d3ceedb2328.png](https://upload-images.jianshu.io/upload_images/61189-5178e754aa615226.png)
+## 编译打包流程介绍
+
+![build.png](https://upload-images.jianshu.io/upload_images/61189-3cdc2fb9eb46af2f.png)
 
 Java -> class
 

@@ -51,3 +51,4 @@ zipalign
 
 
 [Android的编译打包流程详解](https://www.jianshu.com/p/019c735050e0)</br>
+[Android APK打包流程](https://juejin.im/post/5cd0046fe51d453aa5635f98)</br>

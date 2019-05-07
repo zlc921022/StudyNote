@@ -1,10 +1,5 @@
 # Gradle
 
-[Gradle for Android 第一篇( 从 Gradle 和 AS 开始 )](https://segmentfault.com/a/1190000004229002)
-[拥抱 Android Studio 之四：Maven 仓库使用与私有仓库搭建](http://kvh.io/cn/embrace-android-studio-maven-deploy.html)
-## Gradle 插件的编写
-[手把手图文并茂教你发布Android开源库](https://blog.csdn.net/hejjunlin/article/details/52452220)
-
 ## 遇到的奇奇怪怪的bug
 
 ### Unable to load Class
@@ -38,3 +33,8 @@
     去github 查看后发现是 该版本只支持 Gradle 的4.4版本,修改后就可以了
 
 ![image.png](https://upload-images.jianshu.io/upload_images/61189-f46267d91f8c6e67.png)
+
+[Gradle for Android 第一篇( 从 Gradle 和 AS 开始 )](https://segmentfault.com/a/1190000004229002)</br>
+[拥抱 Android Studio 之四：Maven 仓库使用与私有仓库搭建](http://kvh.io/cn/embrace-android-studio-maven-deploy.html)</br>
+## Gradle 插件的编写
+[手把手图文并茂教你发布Android开源库](https://blog.csdn.net/hejjunlin/article/details/52452220)</br>

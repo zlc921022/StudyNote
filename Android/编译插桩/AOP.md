@@ -12,6 +12,4 @@
         AOP
             通过字节码编织或者代理技术,动态的将我们调用统计工具类的逻辑 切入 到类的指定方法
 
-参考资料:
-
-[什么是面向切面编程AOP？](https://www.zhihu.com/question/24863332)
+[什么是面向切面编程AOP？](https://www.zhihu.com/question/24863332)</br>

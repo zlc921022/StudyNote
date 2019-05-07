@@ -8,7 +8,7 @@
    
 ### 2.1 使用遇到的坑
 
-![93FA193C70FB6A228916786C8BA03699.png](https://upload-images.jianshu.io/upload_images/61189-de545aa4b538bf8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![93FA193C70FB6A228916786C8BA03699.png](https://upload-images.jianshu.io/upload_images/61189-de545aa4b538bf8d.png)
 
     如上图,我使用的是 cglib-3.2.12 jar包,提示 ClassNotFound 
 
@@ -18,7 +18,7 @@
         cglib-3.2.12 内未包含 asm jar包,需要单独引入才能正常使用
 
 
-![WechatIMG43.jpeg](https://upload-images.jianshu.io/upload_images/61189-67c047603605fe7e.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) ![WechatIMG42.jpeg](https://upload-images.jianshu.io/upload_images/61189-0d3ee6247ddcc69a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![WechatIMG43.jpeg](https://upload-images.jianshu.io/upload_images/61189-67c047603605fe7e.jpeg) ![WechatIMG42.jpeg](https://upload-images.jianshu.io/upload_images/61189-0d3ee6247ddcc69a.jpeg)
 
     上面的错有2种解决方案
         1. 自行下载 asm jar包 导入,但可能会 版本不匹配的情况(不推荐)

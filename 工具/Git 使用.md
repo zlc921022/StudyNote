@@ -111,4 +111,8 @@ Git 迁移远程仓库
 
 git 删除错误的commit 并保留之前的 记录
 
-https://blog.csdn.net/javalixy/article/details/78258717
+    1. git log 命令,查看 需要回滚版本 对应的 commit_id
+    2. git reset --hard [commit_id] 将本地仓库回退到对应版本
+    3. git push [origin] HEAD --force 将本地仓库强制提交
+
+[github删除错误的commit并保留之前的提交](https://blog.csdn.net/javalixy/article/details/78258717)

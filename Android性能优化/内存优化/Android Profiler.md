@@ -6,9 +6,9 @@
 
 ## 使用 Memory Profiler 对 Bitmap 占内存分析
 
-![image.png](https://upload-images.jianshu.io/upload_images/61189-8b293c9fb614c5ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/61189-8b293c9fb614c5ab.png)
 
-![image.png](https://upload-images.jianshu.io/upload_images/61189-8730dc3799c7f510.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/61189-8730dc3799c7f510.png)
 
     在图中可看到堆中所有的Bitmap对象,列表上显示了Bitmap所占的内存大小,点击后可以查看对应是预览图
 
@@ -17,8 +17,8 @@
 
 ## 使用 Memory Profiler 查看内存对象对应的源码
 
-![image.png](https://upload-images.jianshu.io/upload_images/61189-77c6e99f26674efd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/61189-77c6e99f26674efd.png)
 
 ## 使用 Memory Profiler 按照包名来查看内存信息
 
-![image.png](https://upload-images.jianshu.io/upload_images/61189-d50ef82ecc79a09a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/61189-d50ef82ecc79a09a.png)

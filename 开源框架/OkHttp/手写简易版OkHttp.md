@@ -9,7 +9,7 @@
 ## 2 OkHttp请求流程
 
 ### 2.1 请求流程如下图
-![okhttp_full_process.png](https://upload-images.jianshu.io/upload_images/61189-dd7fa8c172cf2591.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![okhttp_full_process.png](https://upload-images.jianshu.io/upload_images/61189-dd7fa8c172cf2591.png)
 
     手写的UpdateHttp流程与OkHttp 一致 并精简了一部分,可以先看精简后的源码来熟悉OkHttp的源码
 
@@ -70,7 +70,7 @@ RequestBody requestBody = new RequestBody()
 
 ###包结构图
 
-![QQ20190130-101123.png](https://upload-images.jianshu.io/upload_images/61189-9e2398ee68230426.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![QQ20190130-101123.png](https://upload-images.jianshu.io/upload_images/61189-9e2398ee68230426.png)
 
 ### Request
 

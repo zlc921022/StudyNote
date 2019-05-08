@@ -11,7 +11,6 @@
 如上图,检查了好久,发现是 package 信息没写
 因为实用 file 形式创建 groovy 文件不会自动补全 package信息的,所以建议先写package 信息在进行逻辑编写
 
-
 ### 提示 Gradle 版本过低
 
 ![image.png](https://upload-images.jianshu.io/upload_images/61189-72f021adafbc2f2b.png)

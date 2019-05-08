@@ -22,6 +22,21 @@
 
     签名，jarsigner工具，如果是debug模式用默认签名，release模式用开发者的签名。
 
+    apksigner
+
+    V1签名(jarsigner):
+        来自JDK(jarsigner), 对zip压缩包的每个文件进行验证, 签名后还能对压缩包修改(移动/重新压缩文件)
+        对V1签名的apk/jar解压,在META-INF存放签名文件(MANIFEST.MF, CERT.SF, CERT.RSA),
+        其中MANIFEST.MF文件保存所有文件的SHA1指纹(除了META-INF文件), 由此可知: V1签名是对压缩包中单个文件签名验证
+
+    V2签名:
+    来自Google(apksigner), 对zip压缩包的整个文件验证, 签名后不能修改压缩包(包括zipalign),
+    对V2签名的apk解压,没有发现签名文件,重新压缩后V2签名就失效, 由此可知: V2签名是对整个APK签名验证
+    V2签名优点很明显:
+    签名更安全(不能修改压缩包)
+    签名验证时间更短(不需要解压验证),因而安装速度加快
+    注意: apksigner工具默认同时使用V1和V2签名,以兼容Android 7.0以下版本
+
 ### 1.5 zipalign
 
     对齐，通过zipalign工具对apk中的未压缩资源（图片、视频）进行“对齐操作”，让资源按4字节的边界进行对齐，使得资源访问速度更快。（优化思想类似于内存对齐，
@@ -48,8 +63,11 @@
 
     作用域
 
-![transformconsume_transform.png](https://upload-images.jianshu.io/upload_images/61189-85778a7046b23933.png)
+    TransformManager.SCOPE_FULL_PROJECT
 
+![transformconsume_transform.png](https://upload-images.jianshu.io/upload_images/61189-85778a7046b23933.png)
 
 [Android的编译打包流程详解](https://www.jianshu.com/p/019c735050e0)</br>
 [Android APK打包流程](https://juejin.im/post/5cd0046fe51d453aa5635f98)</br>
+[一篇文章看明白 Android v1 & v2 签名机制](https://blog.csdn.net/freekiteyu/article/details/84849651)</br>
+[改善android性能工具篇【zipalign】](https://www.cnblogs.com/hnlshzx/p/3483995.html)</br>

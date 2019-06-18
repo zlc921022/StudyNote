@@ -6,23 +6,32 @@
 
 ### App 怎么启动
 
-* Launcher通知AMS,要启动斗鱼App,而且指定要启动斗鱼App的那个界面(首页)
+* Launcher通知AMS,要启动App,而且指定要启动App的那个界面(首页)
 * AMS 通知Launcher收到请求,同时将要启动的首页记录下来
-* Launcher当前页面进入 Pause 状态,然后通知AMS,进入休眠状态,可以对要斗鱼App进行操作了
-* AMS 检查斗鱼App 是否已经启动了,
-    是 唤起斗鱼App 即可
+* Launcher当前页面进入 Pause 状态,然后通知AMS,进入休眠状态,可以对要App进行操作了
+* AMS 检查App 是否已经启动了,
+    是 唤起App 即可
     否 启动一个新的进程,AMS在新进程中创建一个ActivityThread对象,启动其中的main函数
-* 斗鱼App启动后,通知AMS 启动完成
-* AMS 查找出之前存的启动页面,通知斗鱼App启动那个页面
-* 斗鱼App启动首页,创建Context并与首页Activity关联,然后调用首页Activity的onCreate函数
+* App启动后,通知AMS 启动完成
+* AMS 查找出之前存的启动页面,通知App启动那个页面
+* App启动首页,创建Context并与首页Activity关联,然后调用首页Activity的onCreate函数
 
     上述步骤可分2个部分 
         1~3 Launcher与AMS通信
-        4~7 斗鱼App与AMS通信
+        4~7 App与AMS通信
 
-#### Launcher通知AMS
+## 详细描述
 
-    ActivityThread 就是主线程,也就是UI线程,他在App启动时创建,代表了App应用程序,Application就是整个ActivityThread的上下文
+    根Activity的启动
+
+### 第 1 阶段 : Launcher 通知 AMS
+
+#### 点击图标启动 App
+
+     Flag 设置为 Intent.FLAG_ACTIVITY_NEW_TASK
+        这样根Activity 就会再新的任务栈中启动
+
+#### Activity # startActivityForResult()
 
 ``` java
 @Override
@@ -36,11 +45,12 @@ public void startActivityForResult(
 }
 ```
 
-        上述代码传递了2个重要的参数
-        * 通过ActivityThread的 getApplicationThread方法获取到一个Binder对象,这个对象的类型为ApplicationThread,代表了Launcher所在的App进程
-        * mToken也是一个Binder对象,代表Launcher这个Activity也通过Instrumentation传给AMS,AMS查询后就知道是谁向AMS发起了请求
-        上述参数是为了以后AMS需要通知Launcher的时候,可以通过这2个参数找到Launcher
+    传递了2个重要的参数
+    * 通过ActivityThread的 getApplicationThread方法获取到一个Binder对象,这个对象的类型为ApplicationThread,代表了Launcher所在的App进程
+    * mToken也是一个Binder对象,代表Launcher这个Activity也通过Instrumentation传给AMS,AMS查询后就知道是谁向AMS发起了请求
+    上述参数是为了以后AMS需要通知Launcher的时候,可以通过这2个参数找到Launcher
 
+    ActivityThread 就是主线程,也就是UI线程,他在App启动时创建,代表了App应用程序,Application就是整个ActivityThread的上下文
 
     下为 ActivityThread 的 main函数
 
@@ -53,13 +63,17 @@ public static void main(String[] args) {
 }
 ```
 
+#### Instrumentation # execStartActivity()
+
+    因为根Activity 没有被创建出来,所以调用 Instrumentation 的 execStartActivity
+    Instrumentation 主要来监控应用程序 和 系统的交互
+
 ``` java
 public ActivityResult execStartActivity(
         Context who, IBinder contextThread, IBinder token, Activity target,
         Intent intent, int requestCode, Bundle options) {
-            
+
     try {
-        
         int result = ActivityManagerNative.getDefault()
             .startActivity(whoThread, who.getBasePackageName(), intent,
                     intent.resolveTypeIfNeeded(who.getContentResolver()),
@@ -73,19 +87,27 @@ public ActivityResult execStartActivity(
 }
 ```
 
-## 进阶解密描述
+#### AMN(ActivityManagerNative) # getDefault()
 
-    根Activity的启动
+    ServiceManager 是一个容器类
+    AMN通过getDefault()方法,从ServiceManager中取得一个名为activity的对象,然后将其包装成一个 ActivityManagerProxy 对象(AMP)
+    AMP 就是 AMS 的代理对象
 
-### Launcher 通知 AMS
+#### AMP(ActivityManagerProxy) # startActivity()
 
-    Flag 设置为 Intent.FLAG_ACTIVITY_NEW_TASK
-        这样根Activity 就会再新的任务栈中启动
-    
-    startActivityForResult 来启动Activity
+### 第 2 阶段 : AMS 处理 Launcher 传来的消息
 
-    因为根Activity 没有被创建出来,所以调用 Instrumentation 的 execStartActivity
-    Instrumentation 主要来监控应用程序 和 系统的交互
+#### Binder(也就是AMN/AMP)和AMS通信
 
-### AMS 到 ApplicationThread 的调用过程
-### ActivityThread 启动 Activity
+    每次做不同的事情
+    这次是 Launcher 要启动 App, 发送 START_ACTIVITY 的请求给 AMS,同时告诉 AMS 要启动那个 Activity
+
+#### AMS 处理逻辑
+
+    收到信息并检查 App 中的 Manifest文件 中是否存在要启动的Activity
+    不存在则抛出 Activity not fount 错误
+    存在则进行下一步
+
+#### AMS 通知 Launcher 收到消息
+
+### 第 3 阶段 : Launcher 休眠并通知 AMS 

@@ -111,3 +111,30 @@ public ActivityResult execStartActivity(
 #### AMS 通知 Launcher 收到消息
 
 ### 第 3 阶段 : Launcher 休眠并通知 AMS 
+
+### 第 4 阶段 : AMS 启动新的进程
+
+### 第 5 阶段 : 新的进程启动 以 ActivityThread 的 main 函数 为入口
+
+    创建一个主线程Looper,也就是MainLooper
+    创建 Application 
+    同时将自己的ActivityThread对象发送给AMS, AMS 存储这个新的App的登基信息,AMS以后就通过这个 ActivityThread对象,向这个App 发送消息
+
+### 第 6 阶段 : AMS 告诉 新App 启动哪个 Activity
+
+    AMS 将传入的 ActivityThread 对象 转为一个 ApplicationThread对象,用于以后和这个App跨进程通信
+
+    取出在之前存在 AMS 中要启动的Activity,通过 APT 告诉 App
+
+### 第 7 阶段 : 启动 App 首页 Activity
+
+    App 通过 APT 接受 AMS 的消息,在H的 handleMessage() 中的 switch语句中处理
+    此次类型为 LAUNCH_ACTIVITY
+
+    getPackageInfoNoCheck() 这个方法会提取apk中的所有资源,然后设置r的packageInfo的属性 类型为 LoadedApk
+
+    在H的这个分支上,最终会调用 ActivityThread 的 handleLaunchActivity()
+
+        * 通过 Instrumentation 的 newActivity() 方法,创建要启动的Activity实例
+        * 为这个Activity 创建一个 上下文 Context 对象,并与Activity 进行关联
+        * 通过 Instrumentation 的 callActivityOnCreate 方法,执行 Activity 的onCreate方法,从而启动 Activity

@@ -32,3 +32,17 @@
 
     H 的 mCallback 字段
     ActivityThread 的 mInstrumentation 字段,对应的 newActivity 方法和 callAcvitityOnCreate 方法
+
+## ActivityThread
+
+    28之前 Activity的生命周期 都是通过 H 来做事件分发
+    
+    28 之后 都放到下面方法中了
+        handleRelaunchActivity()
+        通过 各种判断来进行各种状态方法的调用
+        performLaunchActivity()
+        handleLaunchActivity()
+        performDestroyActivity
+
+        
+       

@@ -115,4 +115,11 @@ git 删除错误的commit 并保留之前的 记录
     2. git reset --hard [commit_id] 将本地仓库回退到对应版本
     3. git push [origin] HEAD --force 将本地仓库强制提交
 
-[github删除错误的commit并保留之前的提交](https://blog.csdn.net/javalixy/article/details/78258717)
+
+git clone 某个目录的文件
+
+    git init 
+    git remote add [remote-name] [url]
+    git config core.sparsecheckout true
+    echo [dirName]/* >> .git/info/sparse-checkout 
+    git pull [remote-name][branch-name] 

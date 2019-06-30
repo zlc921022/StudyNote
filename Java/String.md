@@ -8,5 +8,4 @@
     append方法 底层会 通过 Array的copy方法 去扩容
 
     StringBuffer 是线程安全 因为在各种方法都加了 syn.. 关键字修饰
-StringBuilder 是线程不安全的 速度快
-
+    StringBuilder 是线程不安全的 速度快

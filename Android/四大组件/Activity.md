@@ -3,7 +3,6 @@
 ## 提出问题
 
 
-
 ## Activity 生命周期
 
 |Activity 生命周期|时机|
@@ -18,3 +17,10 @@
 |...|...|
 |onNewIntent()|||
 
+### onActivityResult
+
+    为什么不设置为回调
+
+    可以通过一个 BridgeActivity 或者 BridgeFragment 做跳板来接收消息,然后设置为回调
+
+    推荐用 Fragment 更加的轻量

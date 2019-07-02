@@ -12,6 +12,8 @@
 
     postRunable post 的内存泄露引用链
 
+    Android中为什么非UI线程不能更新UI
+
 ## Handler 机制介绍
 
     主要有5个类
@@ -92,6 +94,10 @@
 ![image.png](https://upload-images.jianshu.io/upload_images/61189-87cfc55cecd3c657.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
     该方式是创建了静态内部类,这样就不会不会持有外部类的引用
+
+## Android中为什么非UI线程不能更新UI
+
+
 
 ## 小TIP:
 

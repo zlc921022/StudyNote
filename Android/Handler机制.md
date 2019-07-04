@@ -28,6 +28,7 @@
         Handler 使用 sendMessage() 方法发送消息,
         最后调用到 MessageQueue 的 enqueueMessage()方法,向队列里添加消息
         这里有个关键点 Message 有个值 when(when = 当前时间戳+delay),添加消息的时候会将when的大小当做优先级将MessageQueue 重新排列,
+        这里的当前时间戳 是 开机时间 不是系统时间 所以无论怎么调整系统时间都不会影响的
 
     轮训消息
 

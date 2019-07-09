@@ -112,7 +112,7 @@ fun maxOf(a: Int, b: Int) = if (a > b) a else b
 
     a is String 
 
-    类似 Java 的instanceof 和强转
+    类似 Java 的instanceof 和 强转
 
 ## for 循环
 
@@ -164,6 +164,7 @@ for (i in 1 .. 10) {} // 闭区间 包含10 1~10
 for (i in 1 until 10) {} // 开区间 不包含10
 for (i in 2 .. 10 step 2) {} // 闭区间 step 是步长
 for (i in 10 downTo 1) {} // 闭区间 包含10 10~1
+if (x in 1..10) {} // 判断 x 是否在1~10区间内
 ```
 
 ## 使用集合
@@ -189,3 +190,14 @@ println(files?.size())
 val values = ...
 val email = values["email] ? println("empty")
 ```
+
+## TIPS
+
+    1. == 和 ===
+        == 比较的是数值
+        === 比较的是地址
+
+        kt 也会对基本类型进行装箱
+        比如Int
+        -128 - 127 直接赋值 地址是一样的
+        如果不在这个区间内 会重新创建对象 所以地址不一样

@@ -79,3 +79,30 @@ c = 3
         只读变量
         这种声明变量的方式相当于java中的final变量
         一个val创建的时候必须初始化，因为以后不能被改变。
+
+## 字符串模板
+
+    $a ${a+b}
+
+## 条件表达式
+
+``` java
+fun maxOf(a: Int, b: Int): Int {
+    if (a > b) {
+        return a
+    } else {
+        return b
+    }
+}
+
+fun maxOf(a: Int, b: Int): Int {
+    return if (a > b) a else b
+}
+
+fun maxOf(a: Int, b: Int) = if (a > b) a else b
+```
+
+## 使用可空值  以及 null 检测
+
+    当某个变量的值可以为 null 的时候,必须在声明处的类型后添加 ? 来标识该引用可为 null
+

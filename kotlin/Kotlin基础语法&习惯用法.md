@@ -136,6 +136,26 @@ while (index < 5) {
 }
 ```
 
+## Break Continue 
+    跟java类似 能跳出最直接包围的那层循环
+    配合 label 例如 abc@ loop@ 使用,可以动态控制需要跳出的层数
+
+```java
+var length = 10
+abc@for(i in 1..length){
+    println("first i = $i")
+    for(j in 1..length){
+        println("second j = $j")
+        for(k in 1..length){
+            if (k == 2){
+                break@abc
+            }
+            println("last k = $k")
+        }
+    }
+}
+```
+
 ## when 表达式
 
 ``` java

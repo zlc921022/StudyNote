@@ -106,3 +106,79 @@ fun maxOf(a: Int, b: Int) = if (a > b) a else b
 
     当某个变量的值可以为 null 的时候,必须在声明处的类型后添加 ? 来标识该引用可为 null
 
+## 类型检测 自动类型转换
+
+    is 
+
+    a is String 
+
+    类似 Java 的instanceof 和强转
+
+## for 循环
+
+``` java
+val items = listOf("apple", "banana")
+for (item in items)
+    println(item)
+
+val items = listOf("apple", "banana")
+for (index in items.indices)
+    println(items[index])
+```
+
+## while 循环
+
+``` java
+var index = 0;
+while (index < 5) {
+    println("hello index = $index")
+    index++
+}
+```
+
+## when 表达式
+
+``` java
+var obj: Any = 2 // 若使用不同类型做判断 需要加 Any
+when (obj) {
+    1 -> println("hell0")
+    "world" -> println("world")
+}
+```
+
+## 使用区间(range)
+
+使用 in 运算符 来检测某个数字是否在指定区间内
+
+``` java
+val x = 9
+if (x in 1..10) {
+    println("fits in range")
+} else {
+    println("not fits in range")
+}
+```
+
+``` java
+for (i in 1 .. 10) {} // 闭区间 包含10 1~10
+for (i in 1 until 10) {} // 开区间 不包含10
+for (i in 2 .. 10 step 2) {} // 闭区间 step 是步长
+for (i in 10 downTo 1) {} // 闭区间 包含10 10~1
+```
+
+## 使用集合
+
+``` java
+val items = listOf("apple", "banana")
+for (item in items)
+    println(item)
+```
+
+## ???
+
+### if not null
+
+``` java
+val files = File("Test").listFiles()
+println(files?.size())
+```

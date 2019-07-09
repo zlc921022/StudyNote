@@ -182,3 +182,10 @@ for (item in items)
 val files = File("Test").listFiles()
 println(files?.size())
 ```
+
+### if null 执行一个语句
+
+``` java
+val values = ...
+val email = values["email] ? println("empty")
+```

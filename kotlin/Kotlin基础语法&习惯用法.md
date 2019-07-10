@@ -337,7 +337,7 @@ public interface IListener {
     void wahaha();
 }
 
-// 报错
+// 报错 提示 interface-does-not-have-constructors
 var test = ITest { println("hello") }
 
 // 正常执行

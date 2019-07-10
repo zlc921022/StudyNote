@@ -231,3 +231,48 @@ val email = values["email] ? println("empty")
     标记为 override 的成员是开放的,支持在子类中重写
 
     可以用 var修饰 覆盖一个 val覆盖 的属性
+
+## 扩展
+
+### 扩展函数
+
+``` java
+fun Context.getTest(){
+    Log.e("Update","Hello Context")
+}
+```
+
+需要写到顶层函数(类外) 任何类都行 最好是Utils类,方便管理
+
+扩展函数不会替换类中存在的方法 可以加问号去覆盖null的方法
+
+``` java
+class Test {
+
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            var test = Test()
+            println(test.hello())
+            println(test.world())
+        }
+    }
+
+    fun world(): String {
+        return "Hello Test"
+    }
+
+}
+
+fun Any?.hello(): String {
+    return "Hello Any"
+}
+
+fun Any?.world(): String {
+    return "World Any"
+}
+
+输出结果:
+    Hello Any
+    Hello Test
+```

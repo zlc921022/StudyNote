@@ -345,3 +345,8 @@ var listener = IListener { println("wahahhah") }
 ```
 
     结论就是 这种方式只支持Java,不支持kotlin 
+
+
+## 对象声明
+
+https://blog.csdn.net/xlh1191860939/article/details/79460601

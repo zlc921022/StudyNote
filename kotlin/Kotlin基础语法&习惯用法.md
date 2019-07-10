@@ -259,7 +259,7 @@ class Test {
     }
 
     fun world(): String {
-        return "Hello Test"
+        return "World Test"
     }
 
 }
@@ -276,3 +276,72 @@ fun Any?.world(): String {
     Hello Any
     Hello Test
 ```
+
+## 嵌套类
+
+    嵌套类无法访问外部类的属性
+
+``` java
+class Outer {
+    private val bar: Int = 1
+    class Nested {
+        fun foo() = 2
+    }
+}
+
+val demo = Outer.Nested().foo() // == 2
+```
+
+## 内部类
+
+    内部类可以访问外部类的属性
+
+``` java
+class Outer {
+    private val bar: Int = 1
+    inner class Inner {
+        fun foo() = bar
+    }
+}
+
+val demo = Outer().Inner().foo() // == 1
+```
+
+## 匿名内部类
+
+``` java
+interface ITest {
+    fun say()
+}
+
+var test = object :ITest{
+    override fun say() {
+        println("Hello ")
+    }
+}
+test.say()
+```
+
+### 使用lambda表达式
+
+    如果对象是 函数式 Java 接口（即具有单个抽象方法的 Java 接口）的实例,可以使用 lambda表达式
+
+``` java
+// kotlin 接口
+interface ITest {
+    fun say()
+}
+
+// Java 接口
+public interface IListener {
+    void wahaha();
+}
+
+// 报错
+var test = ITest { println("hello") }
+
+// 正常执行
+var listener = IListener { println("wahahhah") }
+```
+
+    结论就是 这种方式只支持Java,不支持kotlin 

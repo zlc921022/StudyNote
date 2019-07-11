@@ -361,8 +361,6 @@ var listener = IListener { println("wahahhah") }
  Test.TestObject.wahaha()
 ```
 
-    
-
 ## 伴生对象
 
 ### 声明 以及 字节码
@@ -384,4 +382,74 @@ Test.TestObject.wahaha()
     格式固定必须是这样才能运行
     观察字节码发现,  @JvmStatic 该注解会补全一个Java版的 main 方法
 
+## 委托
+
+### 可观察属性
+
+``` java
+
+class User {
+    var name:String by Delegates.observable("no name"){
+        property, oldValue, newValue ->
+        println("$oldValue -> $newValue")
+    }
+}
+
+fun main(args: Array<String>) {
+    val user = User()
+    user.name ="hello"
+    user.name ="world"
+}
+
+输出
+
+no name -> hello
+hello -> world
+```
+
+### 把属性存储在映射中
+
+``` java
+
+class User(val map: Map<String, Any?>) {
+    val name: String by map
+    val age: Int by map
+}
+
+val user = User(
+    mapOf(
+        "name" to "Hello",
+        "age" to 24
+    )
+)
+println(user.name)
+println(user.age)
+```
+
+## 函数
+
+### 可变数量的参数 (Varargs)
+
+``` java
+open class Test {
+    fun add(vararg nums: Int): Int {
+        var sum = 0
+        for (num in nums) {
+            sum += num
+        }
+        return sum
+    }
+}
+
+fun main(args: Array<String>) {
+    var test = Test()
+    println(test.add(1, 2, 3))
+}
+```
+
+
+
 [Kotlin学习系列之：object关键字的使用场景](https://blog.csdn.net/xlh1191860939/article/details/79460601)
+
+
+[Kotlin——初级篇（一）：开发环境搭建](https://juejin.im/post/5a37e2dbf265da43231b1504)

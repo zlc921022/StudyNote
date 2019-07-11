@@ -8,3 +8,5 @@
         ButterKnife.bind(this, view); // 这样无效 因为绑定的View 是新建的不是 holder的
     }
 点击super 发现 super 传入的View 会绑定到 this.itemView = itemView; 所以 绑定itemView 就可以了
+
+https://www.jianshu.com/p/e44961f8add5

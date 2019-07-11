@@ -12,6 +12,18 @@
 
     MeasureSpec的值由SpecSize(测量值)和SpecMode(测量模式)共同组成.
     它是由布局参数和父容器的测量属性一起决定的
+    这里测量 其实用的是位运算
+
+``` java
+public static int getMode(int measureSpec) {
+    //noinspection ResourceType
+    return (measureSpec & MODE_MASK);
+}
+
+public static int getSize(int measureSpec) {
+    return (measureSpec & ~MODE_MASK);
+}
+```
 
     分三种类型
 

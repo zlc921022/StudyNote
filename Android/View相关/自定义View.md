@@ -15,6 +15,26 @@
     这里测量 其实用的是位运算
 
 ``` java
+
+/**
+ * Measure specification mode: The parent has not imposed any constraint
+ * on the child. It can be whatever size it wants.
+ */
+public static final int UNSPECIFIED = 0 << MODE_SHIFT;
+
+/**
+ * Measure specification mode: The parent has determined an exact size
+ * for the child. The child is going to be given those bounds regardless
+ * of how big it wants to be.
+ */
+public static final int EXACTLY     = 1 << MODE_SHIFT;
+
+/**
+ * Measure specification mode: The child can be as large as it wants up
+ * to the specified size.
+ */
+public static final int AT_MOST     = 2 << MODE_SHIFT;
+
 public static int getMode(int measureSpec) {
     //noinspection ResourceType
     return (measureSpec & MODE_MASK);

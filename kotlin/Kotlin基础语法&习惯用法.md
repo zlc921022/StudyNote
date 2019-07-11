@@ -347,6 +347,41 @@ var listener = IListener { println("wahahhah") }
     结论就是 这种方式只支持Java,不支持kotlin 
 
 
-## 对象声明
+## 声明对象
 
-https://blog.csdn.net/xlh1191860939/article/details/79460601
+### 声明 以及 字节码
+
+![image.png](https://upload-images.jianshu.io/upload_images/61189-5e4a3b69a82d3ed9.png)
+
+    观察字节码可以发现,类似Java 中的静态内部类
+
+### 使用 
+
+``` java
+ Test.TestObject.wahaha()
+```
+
+    
+
+## 伴生对象
+
+### 声明 以及 字节码
+
+![image.png](https://upload-images.jianshu.io/upload_images/61189-e55b35efa4c00aa8.png)
+
+    观察字节码可以发现,类似Java 中的静态内部类,但是与声明对象不同,外部类会持有一个半生对象的引用,所以外部类可以直接调用
+
+### 使用
+``` java
+Test.wahaha()
+Test.TestObject.wahaha()
+```
+
+### 创建 main 方法
+
+![image.png](https://upload-images.jianshu.io/upload_images/61189-c85a4a4d686af564.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+    格式固定必须是这样才能运行
+    观察字节码发现,  @JvmStatic 该注解会补全一个Java版的 main 方法
+
+[Kotlin学习系列之：object关键字的使用场景](https://blog.csdn.net/xlh1191860939/article/details/79460601)

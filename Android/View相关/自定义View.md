@@ -8,39 +8,41 @@
     onLayout() 
     onDraw()
 
-## MeasureSpec
+## MeasureSpec 
 
     MeasureSpec的值由SpecSize(测量值)和SpecMode(测量模式)共同组成.
     它是由布局参数和父容器的测量属性一起决定的
     这里测量 其实用的是位运算
 
+    32 位 int 型的值
+
+    SpecMode(前 2 位) + SpecSize(后 30 位)
+
 ``` java
+private static final int MODE_SHIFT = 30;
+  
+private static final int MODE_MASK  = 0x3 << MODE_SHIFT;
+    1100 0000 0000 0000 0000 0000 0000 0000
 
-/**
- * Measure specification mode: The parent has not imposed any constraint
- * on the child. It can be whatever size it wants.
- */
+~MODE_MASK =  // ~ 对 MODE_MASK 取反
+    0011 1111 1111 1111 1111 1111 1111 1111
+
 public static final int UNSPECIFIED = 0 << MODE_SHIFT;
+    0000 0000 0000 0000 0000 0000 0000 0000 
 
-/**
- * Measure specification mode: The parent has determined an exact size
- * for the child. The child is going to be given those bounds regardless
- * of how big it wants to be.
- */
 public static final int EXACTLY     = 1 << MODE_SHIFT;
+    0100 0000 0000 0000 0000 0000 0000 0000 
 
-/**
- * Measure specification mode: The child can be as large as it wants up
- * to the specified size.
- */
 public static final int AT_MOST     = 2 << MODE_SHIFT;
+    1000 0000 0000 0000 0000 0000 0000 0000 
 
 public static int getMode(int measureSpec) {
-    //noinspection ResourceType
+    // 返回前2位
     return (measureSpec & MODE_MASK);
 }
 
 public static int getSize(int measureSpec) {
+    // 这里是取 后30位
     return (measureSpec & ~MODE_MASK);
 }
 ```

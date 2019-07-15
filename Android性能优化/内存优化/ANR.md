@@ -5,15 +5,27 @@
 
 ## 造成 ANR 原因
 
-    Service Timeout: 比如前台服务在20s内未执行完成
-    BroadcastQueue Timeout: 比如前台广播在10s内未执行完成
-    ContentProvider Timeout: 内容提供者,在publish过超时10s
-    InputDispatching Timeout: 输入事件分发超时5s,包括按键和触摸事件
+    Service Timeout: 
+        前台服务在 20s 内未执行完成
+        后台服务是 200s
+
+    BroadcastQueue Timeout: 
+        前台广播在10s内未执行完成
+        后台广播时间是 60s 
+
+    ContentProvider Timeout: 
+        内容提供者,在publish过超时 10s
+
+    InputDispatching Timeout: 
+        输入事件分发超时 5s ,包括按键和触摸事件
 
 ## Service超时监测机制
 
     Service运行在应用程序的主线程，如果Service的执行时间超过20秒，则会引发ANR。
 
+## ANR报告机制
+    
+    无论哪种类型的ANR发生以后,最终都会调用 AppErrors.appNotResponding() 方法
 
 ## ANR 问题定位
 

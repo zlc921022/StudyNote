@@ -29,13 +29,18 @@ private static final int MODE_MASK  = 0x3 << MODE_SHIFT;
 
 public static final int UNSPECIFIED = 0 << MODE_SHIFT;
     0000 0000 0000 0000 0000 0000 0000 0000 
+    父容器不对 View 做任何的限制,系统内部使用
 
 public static final int EXACTLY     = 1 << MODE_SHIFT;
     0100 0000 0000 0000 0000 0000 0000 0000 
+    父容器检测出 View 的大小, View的大小就是 SpecSize
+    LayoutParmas 的 match_parent & 固定大小
 
 public static final int AT_MOST     = 2 << MODE_SHIFT;
     1000 0000 0000 0000 0000 0000 0000 0000 
-
+    父容器指定一个可用大小, View的大小不能超过这个值
+    LayoutParmas 的 wrap_content
+    
 public static int getMode(int measureSpec) {
     // 返回前2位
     return (measureSpec & MODE_MASK);

@@ -73,6 +73,15 @@ DALVIK THREADS:
 
 ![](https://upload-images.jianshu.io/upload_images/61189-7b01cb37d0ad23c6.png)
 
+### 监控工具 
+
+#### BlockCanary
+
+[BlockCanary](https://github.com/markzhai/AndroidPerformanceMonitor)
+
+#### ANR-WatchDog
+
+[ANR-WatchDog](https://github.com/SalomonBrys/ANR-WatchDog)
 
 [深入理解ANR](https://mp.weixin.qq.com/s?__biz=MzIyNTY4NjU0OQ==&mid=2247486156&idx=1&sn=c994406210364387393271748c590ded&chksm=e87aafb6df0d26a05ddeb10835eafc6dbb3a65a0bfc8b20f0c8cdab70f1b4b9ab375cbcfedf5&mpshare=1&scene=23&srcid=0322F041ehtZ5w1s5cR6fg1V#rd)</br>
 [理解Android ANR的触发原理](http://gityuan.com/2016/07/02/android-anr/)</br>

@@ -9,4 +9,25 @@
 
     匹配 ">>>>> Dispatching to "  阈值时间后执行任务(获取堆栈信息)
     匹配 和 "<<<<< Finished to ",任务之前结束掉
+
+``` java
+public class App extends Application {
+    long startTime = 0;
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Looper.getMainLooper().setMessageLogging(new Printer() {
+            @Override
+            public void println(String x) {
+                if (x.contains(">>>>> Dispatching to")) {
+                    startTime = SystemClock.uptimeMillis();
+                } else if (x.contains("<<<<< Finished to")) {
+                    long costTime = SystemClock.uptimeMillis() - startTime;
+                    Log.e("Update", "Update View cost time " + costTime + " x = " + x);
+                }
+            }
+        });
+    }
+}
+```
 http://blog.zhaiyifan.cn/2016/01/16/BlockCanaryTransparentPerformanceMonitor/

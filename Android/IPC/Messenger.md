@@ -180,3 +180,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 }
 ```
 
+[android IPC通信（上）－sharedUserId&&Messenger](https://blog.csdn.net/self_study/article/details/50266629)<br/>

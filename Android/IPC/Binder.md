@@ -24,3 +24,6 @@
     Linux已经拥有管道,socket等IPC手段.Android 却还要倚赖Binder来实现进程间通信,那Binder 有什么优势呢
 
     
+[Binder学习指南 weishu](http://weishu.me/2016/01/12/binder-index-for-newer/)<br/>
+[Android Bander设计与实现 - 设计篇](https://blog.csdn.net/universus/article/details/6211589)<br/>
+[Android进程间通信（IPC）机制Binder简要介绍和学习计划](https://blog.csdn.net/luoshengyang/article/details/6618363)<br/>

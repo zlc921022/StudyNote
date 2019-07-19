@@ -56,6 +56,21 @@ public boolean onUnbind(Intent intent) {
 
 ## 如何结束
 
-    stopSelf()
+    stopService()
 
-    可以通过广播 来接受结束的消息,让自己主动结束
+        不推荐使用stopService来关闭服务，因为它就像强制结束进程一样是种不负责任的做法，这种时候服务往往不能正常的退出。
+
+        startService 启动 可以结束
+        bindService 启动 无法结束
+
+    stopSelf()
+        Android推荐使用 Service 的 stopSelf 这个方法来关闭服务
+        也就是服务自己关闭自己,这样就能保证服务里所有的流程和状态在关闭时得到处理和保存
+        可以通过广播 EventBus 和 RxBus 等来做消息的传递
+        
+        startService 启动 可以结束
+        bindService 启动 无法结束
+
+    unbindService()
+
+        通过 bindService 启动的 需要使用这个来结束

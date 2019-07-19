@@ -2,7 +2,7 @@
 
     在 onCreate 中新建 HandlerThread 线程,并完成自身线程looper的创建,
 
-    在 onStart 中完成 Message 的创建,并发送给 ServiceHandler 并调用 onHandleIntent 来做具体的处理
+    在 onStart 中完成 Message 的创建,并发送给 ServiceHandler 并调用 onHandleIntent 来做具体的处理, onHandleIntent 后调用了 stopSelf 所以任务结束后自动销毁 
 
     在 onHandleIntent 中实现具体逻辑
 

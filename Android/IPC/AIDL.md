@@ -1,12 +1,15 @@
 # AIDL
 
 ## 分类
-
     aidl 文件有2种
         实现了Parcelable接口, 
             用于定义 Parcelable 对象,以供其他aidl文件使用 aidl非默认的数据类型
         用来定义方法接口
             供系统使用来完成跨进程通信
+### PS:
+        所有的非默认支持数据类型必须通过第一类AIDL文件定义才能被使用
+
+## 分析
 
 ### asInterface()
 

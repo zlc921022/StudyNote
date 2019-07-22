@@ -74,3 +74,109 @@ public boolean onUnbind(Intent intent) {
     unbindService()
 
         通过 bindService 启动的 需要使用这个来结束
+
+## bindService
+
+``` java
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = "Update TestService";
+
+    Activity activity;
+    ServiceConnection mConnection;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        activity = this;
+        setContentView(R.layout.activity_main);
+        mConnection = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                TestService.TestBinder  testBinder = (TestService.TestBinder) service;
+                TestService testService = testBinder.getService();
+                log("onServiceConnected " +testService.getName());
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+                log("onServiceDisconnected");
+            }
+        };
+        findViewById(R.id.btn1).setOnClickListener(this);
+        findViewById(R.id.btn2).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(activity, TestService.class);
+        switch (v.getId()) {
+            case R.id.btn1:
+                bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+                break;
+            case R.id.btn2:
+                unbindService(mConnection);
+                break;
+        }
+    }
+
+    private void log(String msg) {
+        Log.e(TAG, msg);
+    }
+}
+
+public class TestService extends Service {
+    private static final String TAG = "Update TestService";
+
+    private final IBinder mBinder = new TestBinder();
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        log("onCreate");
+    }
+
+    @Override
+    public void onStart(Intent intent, int startId) {
+        super.onStart(intent, startId);
+        log("onStart");
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        log("onStartCommand");
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        log("onBind");
+        return mBinder;
+    }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        log("onUnbind");
+        return super.onUnbind(intent);
+    }
+
+    @Override
+    public void onDestroy() {
+        log("onDestroy");
+        super.onDestroy();
+    }
+
+    private void log(String msg) {
+        Log.e(TAG, msg);
+    }
+
+    public String getName(){
+        return "Helloya";
+    }
+
+    class TestBinder extends Binder {
+        TestService getService(){
+            return TestService.this;
+        }
+    }
+}
+```

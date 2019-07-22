@@ -191,4 +191,8 @@ public class MessengerActivity extends AppCompatActivity implements View.OnClick
 }
 ```
 
+## 特性
+
+    Messenger 只能串行处理问题
+
 [android IPC通信（上）－sharedUserId&&Messenger](https://blog.csdn.net/self_study/article/details/50266629)<br/>

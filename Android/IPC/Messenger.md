@@ -11,6 +11,7 @@
 
 ``` java
 public class ServerService extends Service {
+    private static final String TAG = "Update TestService";
 
     public static final String KEY_MESSAGE = "message";
     public static final int  KEY_CONN = 1;
@@ -25,7 +26,7 @@ public class ServerService extends Service {
             int what = msg.what;
             switch (what) {
                 case KEY_CONN:
-                    L.e("i received " + msg.getData().getString(KEY_MESSAGE));
+                    log("i received " + msg.getData().getString(KEY_MESSAGE));
                     Messenger client = msg.replyTo;
 
                     if (client != null) {
@@ -33,7 +34,7 @@ public class ServerService extends Service {
                         Message reply = Message.obtain();
                         Bundle bundle = new Bundle();
                         bundle.putString(KEY_MESSAGE, data);
-                        L.e(data);
+
                         reply.setData(bundle);
 
                         try {
@@ -44,8 +45,8 @@ public class ServerService extends Service {
                     }
                     break;
                 case KEY_DISCONN:
-                    L.e("i received " + msg.getData().getString(KEY_MESSAGE));
-                    L.e("client has disconn this conn");
+                    log("i received " + msg.getData().getString(KEY_MESSAGE));
+                    log("client has disconn this conn");
                     break;
                 default:
             }
@@ -63,13 +64,19 @@ public class ServerService extends Service {
         super.onCreate();
         messenger = new Messenger(new MessengerHandler());
     }
+
+    private static void log(String msg) {
+        Log.e(TAG, msg);
+    }
+
 }
 ```
 
 ### Client
 
 ``` java
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MessengerActivity extends AppCompatActivity implements View.OnClickListener{
+    private static final String TAG = "Update TestService";
 
     private ServiceConnection serviceConnection;
     private Messenger serverMessenger;
@@ -80,14 +87,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_messenger);
         initView();
         initData();
 
     }
 
     private void initView() {
-        findViewById(R.id.conn_handler).setOnClickListener(this);
+        findViewById(R.id.btn).setOnClickListener(this);
 
     }
 
@@ -108,12 +115,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
-                L.e("i have received " + msg.getData().getString(ServerService.KEY_MESSAGE));
+                log("i have received " + msg.getData().getString(ServerService.KEY_MESSAGE));
                 Message message = Message.obtain();
                 Bundle bundle = new Bundle();
                 bundle.putString(ServerService.KEY_MESSAGE, "Ok bye");
                 message.setData(bundle);
-                L.e("i have send " + message.getData().getString(ServerService.KEY_MESSAGE));
+                log("i have send " + message.getData().getString(ServerService.KEY_MESSAGE));
 
                 message.what = ServerService.KEY_DISCONN;
 
@@ -136,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Bundle bundle = new Bundle();
         bundle.putString(ServerService.KEY_MESSAGE, "i have send handler a message at " + currTime);
         message.setData(bundle);
-        L.e("i have send " + message.getData().getString(ServerService.KEY_MESSAGE));
+        log("i have send " + message.getData().getString(ServerService.KEY_MESSAGE));
         message.what = ServerService.KEY_CONN;
         message.replyTo = messenger;
         if (null != serverMessenger) {
@@ -151,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.conn_handler:
+            case R.id.btn:
                 if (!hasBindService) {
                     Intent intent = new Intent();
                     String packageName = "com.update.messengerdemo";
@@ -176,6 +183,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (null != serverMessenger) {
             unbindService(serviceConnection);
         }
+    }
+
+    private static void log(String msg) {
+        Log.e(TAG, msg);
     }
 }
 ```

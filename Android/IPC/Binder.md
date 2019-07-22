@@ -27,3 +27,4 @@
 [Binder学习指南 weishu](http://weishu.me/2016/01/12/binder-index-for-newer/)<br/>
 [Android Bander设计与实现 - 设计篇](https://blog.csdn.net/universus/article/details/6211589)<br/>
 [Android进程间通信（IPC）机制Binder简要介绍和学习计划](https://blog.csdn.net/luoshengyang/article/details/6618363)<br/>
+[写给 Android 应用工程师的 Binder 原理剖析](https://zhuanlan.zhihu.com/p/35519585)<br/>

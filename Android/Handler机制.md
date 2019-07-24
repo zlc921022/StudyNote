@@ -110,3 +110,5 @@
 ![](https://upload-images.jianshu.io/upload_images/61189-8a0f9cc3e6728cf3.jpg)
 
     这里会检测是否有传callback 若有传就不会走handleMessage了
+
+[Android消息机制之同步障碍机制和应用](https://yanzhenjie.blog.csdn.net/article/details/96497153)

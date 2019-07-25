@@ -111,4 +111,11 @@
 
     这里会检测是否有传callback 若有传就不会走handleMessage了
 
+## 同步障碍
+
+    该功能需要主动去开启关闭
+
+    postSyncBarrier 开启
+    removeSyncBarrier 关闭
+    
 [Android消息机制之同步障碍机制和应用](https://yanzhenjie.blog.csdn.net/article/details/96497153)

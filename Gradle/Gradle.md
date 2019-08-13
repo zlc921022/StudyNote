@@ -31,9 +31,48 @@
     check : 运行Lint检查, 如果Lint发现一个问题,则可终止构建
     build : 同时运行 assemable 和 check
 
-##### Android插件添加的心任务
+##### Android插件添加的新任务
     connectedCheck : 在连接设备或模拟器上运行测试
     deviceCheck : 一个占位任务, 专为其他插件在远端设备锁行运行测试
     installDebug 和 installRelease : 在连接设备或模拟器上安装指定版本
     所有的 installTasks 都会有相对应的 uninstall 任务
 
+### 自定义构建
+
+#### 操控 manifest 条目
+
+    applicationId
+    minSdkVersion
+    targetSdkVersion
+    versionCode
+    versionName
+
+#### BuildConfig 和 资源
+
+``` groovy
+android {
+    buildTypes {
+        debug {
+            buildConfigField("boolean", "LOG_DEBUG", "true")
+            resValue "string", "app_test", "Example DEBUG"
+        }
+        release {
+            buildConfigField("boolean", "LOG_DEBUG", "false")
+            resValue "string", "app_test", "Example relea"
+        }
+    }
+}
+```
+
+#### 项目范围的设置
+    给根目录下的 build.gradle 文件添加一个含有自定义属性的 ext 代码块
+``` groovy
+ext {
+    versionCode = 6
+    versionName = "1.0.1"
+}
+android {
+    versionCode parent.ext.versionCode
+    versionName parent.ext.versionName
+}
+```

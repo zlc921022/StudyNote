@@ -86,7 +86,7 @@ android {
 ``` groovy
 android {
     android.applicationVariants.all { variant ->
-        variant.outputs.all { output ->
+         variant.outputs.all { output ->
             String flavorName = variant.flavorName.capitalize()
             outputFileName = "${flavorName}_${buildType.name}_${getAppVersionName()}_${getTime()}.apk"
         }

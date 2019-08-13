@@ -76,3 +76,20 @@ android {
     versionName parent.ext.versionName
 }
 ```
+
+## 创建构建Variant
+
+### 构建类型
+
+#### variant 过滤器
+
+``` groovy
+android {
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            String flavorName = variant.flavorName.capitalize()
+            outputFileName = "${flavorName}_${buildType.name}_${getAppVersionName()}_${getTime()}.apk"
+        }
+    }
+}
+```

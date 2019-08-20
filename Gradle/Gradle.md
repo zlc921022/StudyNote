@@ -93,3 +93,12 @@ android {
     }
 }
 ```
+
+## 管理多模块构建
+
+### 加速多模块构建
+
+    如果想并行构建项目
+    需要在项目根目录的 gradle.properties文件中配置 parallel 属性
+    org.gradle.parallel= true
+    Gradle 会基于可用的CPU 内核,来选择正确的线程数量,为了防止出现同一模块同时执行两个任务的问题,每个线程只拥有一个完整的模块

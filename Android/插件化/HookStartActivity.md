@@ -43,6 +43,3 @@
         performLaunchActivity()
         handleLaunchActivity()
         performDestroyActivity
-
-        
-       

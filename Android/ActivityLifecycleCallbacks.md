@@ -6,5 +6,3 @@
 
     可以做类似AOP的操作,比如埋点,打印日志
     对 Activity 添加 TitleView 之类的操作
-
-

@@ -9,4 +9,8 @@
     }
 点击super 发现 super 传入的View 会绑定到 this.itemView = itemView; 所以 绑定itemView 就可以了
 
-https://www.jianshu.com/p/e44961f8add5
+[【进阶】RecyclerView源码解析(二)——缓存机制](https://www.jianshu.com/p/e44961f8add5)
+
+[Android RecyclerView学习索引](https://www.jianshu.com/p/3726c8242aeb)
+
+[【腾讯Bugly干货分享】Android ListView 与 RecyclerView 对比浅析—缓存机制](https://zhuanlan.zhihu.com/p/23339185)

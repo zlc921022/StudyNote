@@ -6,3 +6,24 @@
 
     可以做类似AOP的操作,比如埋点,打印日志
     对 Activity 添加 TitleView 之类的操作
+
+## 原理
+
+### 注册 
+
+    Application # registerActivityLifecycleCallbacks(ActivityLifecycleCallbacks callback)
+
+        用这个方法去注册 callback,然后在 Application 中会有一个List 去维护
+
+### 分发
+
+``` java
+Application # dispatchActivityCreated(Activity activity, Bundle savedInstanceState) 
+Application # dispatchActivityStarted(Activity activity) 
+...
+Application # dispatchActivityDestroyed(Activity activity)
+
+```
+
+    在上述方法中分发给Activity 
+    其中 dispatchActivity*** 这些方法 会在Activity 对应的生命周期主动回调

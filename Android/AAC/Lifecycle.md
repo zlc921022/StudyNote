@@ -2,6 +2,17 @@
 
     它能够帮助我们方便的管理 Activity 以及 Fragment 的生命周期。
 
+## 基本使用
+
+``` java
+getLifecycle().addObserver(new LifecycleObserver() {
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    void onResume() {
+        Log.e(TAG, "onResume");
+    }
+});
+```
+
 ## Lifecycle & LifecycleRegistry
 
 ``` java

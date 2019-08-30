@@ -59,6 +59,7 @@ WorkManager.getInstance().enqueue(request);
     可以给任务加一些运行的Constraints条件
     比如说当设备空闲时或者正在充电或者连接WiFi时执行任务。
 
+``` java
     setRequiresDeviceIdle(boolean requiresDeviceIdle)
         当设备空闲时运行
     
@@ -73,6 +74,7 @@ WorkManager.getInstance().enqueue(request);
     
     setRequiresCharging(boolean requiresCharging)
         当设备充电状态下
+```
 
 ``` java
 Constraints constraints = new Constraints.Builder()
@@ -122,6 +124,16 @@ OneTimeWorkRequest request = new OneTimeWorkRequest
 WorkManager.getInstance().enqueue(request);
 
 WorkManager.getInstance().cancelWorkById(request.getId());
+```
+
+### WorkManager 多任务调度
+
+``` java
+WorkManager.getInstance()
+    .beginWith(workA)
+    .then(workB)
+    .then(workC)
+    .enqueue();
 ```
 
 [WorkManager完全解析+重构轮询系统](https://juejin.im/post/5c4472ec51882522c03e941d)

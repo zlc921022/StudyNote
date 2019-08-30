@@ -13,6 +13,9 @@
 
 ### 创建一个类 继承 Worker
 
+    Worker是一个抽象类, 当有一个要执行的任务的时候可以继承Worker类, 
+    重写doWork()方法, 在doWork()方法中实现具体任务的逻辑
+
 ``` java
 public class TestWorker extends Worker {
     @Override
@@ -25,22 +28,63 @@ public class TestWorker extends Worker {
 }
 ```
 
-### 创建 Request
+### 创建 WorkRequest
 
-``` java
-PeriodicWorkRequest request = new PeriodicWorkRequest
-        .Builder(TestWorker.class,1, TimeUnit.SECONDS)
-        .build();
-WorkManager.getInstance().enqueue(request);
-```
+    WorkRequest要指定执行任务的Worker, 也可以给WorkRequest加一些规则
 
 #### OneTimeWorkRequest 
 
     任务只执行一次
 
+``` java
+OneTimeWorkRequest request =
+        new OneTimeWorkRequest.Builder(TestWorker.class)
+        .build();
+WorkManager.getInstance().enqueue(request);
+```
+
 #### PeriodicWorkRequest
 
     重复执行任务,知道被取消才停止
 
+``` java
+PeriodicWorkRequest request =
+        new PeriodicWorkRequest.Builder(TestWorker.class,1, TimeUnit.SECONDS)
+        .build();
+WorkManager.getInstance().enqueue(request);
+```
+
+### Constraints
+
+    可以给任务加一些运行的Constraints条件
+    比如说当设备空闲时或者正在充电或者连接WiFi时执行任务。
+
+    setRequiresDeviceIdle(boolean requiresDeviceIdle)
+        当设备空闲时运行
+    
+    setRequiresBatteryNotLow(boolean requiresBatteryNotLow)
+        当设备电量不低(充足)
+    
+    setRequiresStorageNotLow(boolean requiresStorageNotLow)
+        当设备存储空间不低(充足)
+
+    setRequiredNetworkType(@NonNull NetworkType networkType)
+        当设备网络状态为 WIFI/3G/4G 时请求
+    
+    setRequiresCharging(boolean requiresCharging)
+        当设备充电状态下
+
+``` java
+Constraints constraints = new Constraints.Builder()
+        .setRequiresDeviceIdle(true)
+        .setRequiredNetworkType(NetworkType.UNMETERED)
+        .build();
+
+OneTimeWorkRequest request = new OneTimeWorkRequest
+        .Builder(TestWorker.class)
+        .build();
+
+WorkManager.getInstance().enqueue(request);
+```
 
 [WorkManager完全解析+重构轮询系统](https://juejin.im/post/5c4472ec51882522c03e941d)

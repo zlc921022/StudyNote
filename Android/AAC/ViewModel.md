@@ -30,6 +30,21 @@ public class MyViewModel extends ViewModel {
 
 
 
+##
+
+``` java
+HolderFragment.HolderFragmentManager
+    holderFragmentFor(FragmentActivity activity)
+         activity.getApplication().registerActivityLifecycleCallbacks(mActivityCallbacks);
+
+         注册一个 Lifecycle 监听 然后在onActivityDestroyed()中,将 fragment remove()
+
+    holderFragmentFor(Fragment parentFragment)
+         parentFragment.getFragmentManager()
+                    .registerFragmentLifecycleCallbacks(mParentDestroyedCallback, false);
+        注册一个 FragmentLifecycle 监听, 然后在 onFragmentDestroyed() 中,将fragment remove()
+        
+```
 
 
 [【AAC 系列四】深入理解架构组件：ViewModel](https://juejin.im/post/5d0111c1e51d45108126d226)</br>

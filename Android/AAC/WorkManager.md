@@ -87,4 +87,41 @@ OneTimeWorkRequest request = new OneTimeWorkRequest
 WorkManager.getInstance().enqueue(request);
 ```
 
+## WorkManager
+
+    WorkManager管理WorkRequest队列, 并根据设备和其他条件选择执行的具体方式
+
+### 检查任务的执行状态
+
+    可以通过获取WorkInfo
+    WorkInfo在WorkManager里面的LiveData<WorkInfo>中
+
+``` java
+OneTimeWorkRequest request = new OneTimeWorkRequest
+        .Builder(TestWorker.class)
+        .build();
+WorkManager.getInstance().enqueue(request);
+
+WorkManager.getInstance().getStatusById(request.getId())
+        .observe(this, new Observer<WorkStatus>() {
+            @Override
+            public void onChanged(@Nullable WorkStatus workStatus) {
+                if (workStatus != null && workStatus.getState().isFinished()) {
+                    // ...
+                }
+            }
+        });
+```
+
+### 取消任务执行
+
+``` java 
+OneTimeWorkRequest request = new OneTimeWorkRequest
+        .Builder(TestWorker.class)
+        .build();
+WorkManager.getInstance().enqueue(request);
+
+WorkManager.getInstance().cancelWorkById(request.getId());
+```
+
 [WorkManager完全解析+重构轮询系统](https://juejin.im/post/5c4472ec51882522c03e941d)

@@ -10,14 +10,14 @@
         后台服务是 200s
 
     BroadcastQueue Timeout: 
-        前台广播在10s内未执行完成
+        前台广播在 10s 内未执行完成
         后台广播时间是 60s 
 
     ContentProvider Timeout: 
-        内容提供者,在publish过超时 10s
+        内容提供者在p ublish过超时 10s
 
     InputDispatching Timeout: 
-        输入事件分发超时 5s ,包括按键和触摸事件
+        输入事件分发超时 5s (包括按键和触摸事件)
 
 ## Service超时监测机制
 

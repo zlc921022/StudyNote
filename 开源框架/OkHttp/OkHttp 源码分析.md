@@ -134,6 +134,14 @@ Dispatcher用于维护同步异步的请求状态,并维护一个线程池,用�
 * 调用下一个拦截器,获取他的Response
 * 对Response进行处理并返回给上一个拦截器
 
+``` java
+RetryAndFollowUpInterceptor
+BridgeInterceptor
+CacheInterceptor
+ConnectInterceptor
+CallServerInterceptor
+```
+
 ### RetryAndFollowUpInterceptor
 
 失败重连 重定向

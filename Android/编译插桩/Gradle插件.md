@@ -37,3 +37,5 @@
 [拥抱 Android Studio 之四：Maven 仓库使用与私有仓库搭建](http://kvh.io/cn/embrace-android-studio-maven-deploy.html)</br>
 ## Gradle 插件的编写
 [手把手图文并茂教你发布Android开源库](https://blog.csdn.net/hejjunlin/article/details/52452220)</br>
+[【Android】函数插桩（Gradle + ASM）](https://www.jianshu.com/p/16ed4d233fd1)</br>
+[在AndroidStudio中自定义Gradle插件](https://blog.csdn.net/huachao1001/article/details/51810328)</br>

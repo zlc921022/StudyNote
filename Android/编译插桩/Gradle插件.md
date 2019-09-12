@@ -2,12 +2,62 @@
 
 ## 插件编写
 
+### 创建一个类 实现  Plugin接口即可
 
+``` groovy
+class AopPlugin implements Plugin<Project> {
+    @Override
+    void apply(Project project) {
+    }
+}    
+```
 
+#### 判断是否为App
 
+``` groovy
+def isApp = project.plugins.hasPlugin(AppPlugin)
+```
 
+### 使用自定义的配置参数
 
+#### 创建自定义 DataBean
 
+``` groovy
+class AopExtension {
+    public static final String EXT_NAME = 'pluginAop'
+    String aopClass = ''
+}
+
+class AopPlugin implements Plugin<Project> {
+    @Override
+    void apply(Project project) {
+        project.extensions.create(AopExtension.EXT_NAME, AopExtension)
+        project.afterEvaluate {
+            init(project) 
+        }
+    }
+
+    static void init(Project project) {
+        // 读取自定义的配置参数 并赋值给定义的 DataBean
+        AopExtension extension = project.extensions.findByName(AopExtension.EXT_NAME) as AopExtension
+        project.logger.error extension.aopClass
+    }
+}
+```
+
+#### 使用
+
+    在主module(app)的 build.gradle文件中添加以下配置
+``` groovy 
+pluginAop {
+    aopClass = 'com.helloya'
+}
+```
+
+#### 输出
+``` java
+com.helloya
+```
 
 ## 遇到的奇奇怪怪的bug
 

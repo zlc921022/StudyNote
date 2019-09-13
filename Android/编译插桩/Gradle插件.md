@@ -99,3 +99,4 @@ com.helloya
 [【Android】函数插桩（Gradle + ASM）](https://www.jianshu.com/p/16ed4d233fd1)</br>
 [在AndroidStudio中自定义Gradle插件](https://blog.csdn.net/huachao1001/article/details/51810328)</br>
 [构建神器Gradle](http://jiajixin.cn/2015/08/07/gradle-android/)</br>
+[鸿洋推荐 Gradle学习资料](https://mp.weixin.qq.com/s?__biz=MzAxMTI4MTkwNQ==&mid=2650828850&idx=1&sn=b5be1ab7fb2fc85fcee1bf490be52446&chksm=80b7a4acb7c02dbad6735def8eb36fefd306eb0b4ffd2e9ac0bd94b292476c0d258962024b27&mpshare=1&scene=23&srcid=&sharer_sharetime=1568280695544&sharer_shareid=fbe42eb3d0b49110b240c829132445bf#rd)</br>

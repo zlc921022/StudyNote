@@ -59,6 +59,41 @@ pluginAop {
 com.helloya
 ```
 
+### 监听Task构建开始和结束
+
+#### 需要实现 TaskExecutionListener 接口
+
+### 接口描述 
+
+[TaskExecutionListener](https://docs.gradle.org/current/javadoc/org/gradle/api/execution/TaskExecutionListener.html)</br>
+
+### 代码实现
+
+``` groovy 
+class TaskListener implements TaskExecutionListener {
+
+    long startTime
+
+    /**
+     * 在 task执行前 调用
+     */
+    @Override
+    void beforeExecute(Task task) {
+        startTime = System.currentTimeMillis()
+    }
+
+    /**
+     * 在 task执行后 调用
+     */
+    @Override
+    void afterExecute(Task task, TaskState taskState) {
+        long ms = System.currentTimeMillis() - startTime
+        println "${task.path} spend ${ms}ms"
+    }
+}
+```
+
+
 ## 遇到的奇奇怪怪的bug
 
 ### Unable to load Class

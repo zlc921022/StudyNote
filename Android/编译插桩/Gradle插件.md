@@ -65,6 +65,8 @@ com.helloya
 
 ### 接口描述 
 
+    用来监控 Task 的Listener
+
 [TaskExecutionListener](https://docs.gradle.org/current/javadoc/org/gradle/api/execution/TaskExecutionListener.html)</br>
 
 ### 代码实现
@@ -90,6 +92,30 @@ class TaskListener implements TaskExecutionListener {
         long ms = System.currentTimeMillis() - startTime
         println "${task.path} spend ${ms}ms"
     }
+}
+```
+
+#### 需要实现 BuildListener 接口
+
+### 接口描述 
+
+    用来监控构建的Listener
+
+[BuildListener](https://docs.gradle.org/current/javadoc/org/gradle/BuildListener.html)</br>
+
+### 内部实现
+
+``` groovy 
+public interface BuildListener {
+    void buildStarted(Gradle var1);
+
+    void settingsEvaluated(Settings var1);
+
+    void projectsLoaded(Gradle var1);
+
+    void projectsEvaluated(Gradle var1);
+
+    void buildFinished(BuildResult var1);
 }
 ```
 

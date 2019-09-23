@@ -35,6 +35,12 @@ SharedPreferences getSharedPreferences(File file, int mode)
     所以想要使用这个Flag来实现 跨进程通信,是不可靠的
 
 
+### 注意事项
+
+    1. 不要存放大的key和value,会引起界面卡顿,频繁GC,占用内存等
+    2. 不相干的配置项分开保存
+    3. 不要频繁的 apply 和commit,尽量修改完一起提交
+
 
 [彻底搞懂 SharedPreferences](https://juejin.im/entry/597446ed6fb9a06bac5bc630)</br>
 [请不要滥用SharedPreference](http://weishu.me/2016/10/13/sharedpreference-advices/)</br>

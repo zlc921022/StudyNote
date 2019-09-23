@@ -28,7 +28,7 @@ SharedPreferences getSharedPreferences(File file, int mode)
         QueuedWork.waitToFinish();
     }
 
-    在 Activity Stop 的时候会对sp的 apply进行监控,如果没有写入完毕 就会等待写入任务完成,如果apply任务特别多的话,会导致界面卡顿
+    Activity 会在Pause(Api 11 以下) 或 Stop(Api 11 以上) 的时候, 会对sp的 apply进行监控, 如果没有写入完毕 就会等待写入任务完成,如果apply任务特别多的话,会导致界面卡顿
 
 ## 用来跨进程
 

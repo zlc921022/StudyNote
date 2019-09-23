@@ -49,6 +49,7 @@ SharedPreferences getSharedPreferences(File file, int mode)
     1. 不要存放大的key和value,会引起界面卡顿,频繁GC,占用内存等
     2. 不相干的配置项分开保存
     3. 不要频繁的 apply 和commit,尽量修改完一起提交
+    4. apply 比 commit 的效率更高
 
 
 [彻底搞懂 SharedPreferences](https://juejin.im/entry/597446ed6fb9a06bac5bc630)</br>

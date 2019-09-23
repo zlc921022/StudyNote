@@ -24,9 +24,9 @@ SharedPreferences getSharedPreferences(File file, int mode)
     会先将修改封装成 一个带有await的runnable,并添加进了QueueWork类的一个队列,用作监听
     然后把这个写入任务通过 enqueueDiskWrite() 交给一个只有单个线程的线程池去执行
     
-### ActivityThread # handleStopActivity()
-
-    QueuedWork.waitToFinish();
+    ActivityThread # handleStopActivity() {
+        QueuedWork.waitToFinish();
+    }
 
     在 Activity Stop 的时候会对sp的 apply进行监控,如果没有写入完毕 就会等待写入任务完成,如果apply任务特别多的话,会导致界面卡顿
 

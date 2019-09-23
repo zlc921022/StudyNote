@@ -54,3 +54,4 @@ SharedPreferences getSharedPreferences(File file, int mode)
 
 [彻底搞懂 SharedPreferences](https://juejin.im/entry/597446ed6fb9a06bac5bc630)</br>
 [请不要滥用SharedPreference](http://weishu.me/2016/10/13/sharedpreference-advices/)</br>
+[一个null引发的SharedPreferences惨案](https://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650237991&idx=1&sn=7e80d3504c257d13cad7efea104eac5b&chksm=88639d48bf14145e6e9e051c5dde7dbe047b8ac97aaa73df09a3ebd97566dd694e162c1bd584&scene=38#wechat_redirect)</br>
